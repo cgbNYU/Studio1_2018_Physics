@@ -810,6 +810,7 @@ GameObject:
   - component: {fileID: 649576990}
   - component: {fileID: 649576989}
   - component: {fileID: 649576988}
+  - component: {fileID: 649576992}
   m_Layer: 0
   m_Name: FrontCalf
   m_TagString: Untagged
@@ -917,6 +918,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 649576986}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!234 &649576992
+SliderJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649576986}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1796162531}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -0.0138990795, y: 1.1200001}
+  m_AutoConfigureAngle: 1
+  m_Angle: 0
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_TranslationLimits:
+    m_LowerTranslation: 0
+    m_UpperTranslation: 0
 --- !u!1 &778431477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,7 +1333,7 @@ HingeJoint2D:
   m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: -150
-    m_UpperAngle: 0
+    m_UpperAngle: -21.540985
 --- !u!50 &1344407345
 Rigidbody2D:
   serializedVersion: 4
@@ -1484,7 +1510,7 @@ Transform:
   m_GameObject: {fileID: 1796162530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4.53, z: 0}
-  m_LocalScale: {x: 17.956875, y: 1, z: 1}
+  m_LocalScale: {x: 269.80203, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
