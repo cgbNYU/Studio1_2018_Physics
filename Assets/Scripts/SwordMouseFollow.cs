@@ -44,7 +44,6 @@ public class SwordMouseFollow : MonoBehaviour {
 		tipPos = gameObject.transform.position;
 		mouseDif = mousePos - tipPos;
 		
-
 		//Applys force to the sword tip in the direction of the mouse
 		rb.AddForce(mouseDif.normalized * moveForce);
 		
