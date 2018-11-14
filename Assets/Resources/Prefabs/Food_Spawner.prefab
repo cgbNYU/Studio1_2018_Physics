@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c719fdd80ee4f53b7a4027776a81c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 0}
+  food: {fileID: 1577349150651754, guid: 3fcfc6d2433224ae08734c0f471723aa, type: 2}
   stopSpawning: 0
   spawnTime: 0
-  spawnDelay: 0
+  spawnDelay: 0.1
