@@ -398,12 +398,12 @@ SpringJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0.46}
+  m_Anchor: {x: 0, y: -0.02}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
-  m_Distance: 0.008
-  m_DampingRatio: 0
-  m_Frequency: 2
+  m_Distance: 0.005
+  m_DampingRatio: 0.5
+  m_Frequency: 3
 --- !u!255 &653691006
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 4
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -788,7 +788,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -984,19 +984,19 @@ SliderJoint2D:
   m_ConnectedRigidBody: {fileID: 1796162531}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
+  m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.23647681, y: -0.4104154}
   m_ConnectedAnchor: {x: -0.014025051, y: 0.5180421}
-  m_AutoConfigureAngle: 1
+  m_AutoConfigureAngle: 0
   m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_TranslationLimits:
-    m_LowerTranslation: 0
-    m_UpperTranslation: 0
+    m_LowerTranslation: -1
+    m_UpperTranslation: 0.03
 --- !u!61 &1259318246
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1114,7 +1114,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1162,8 +1162,8 @@ HingeJoint2D:
   m_ConnectedRigidBody: {fileID: 1208663629}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.10113782, y: -0.61163306}
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: -0.05, y: -0.37}
   m_ConnectedAnchor: {x: 0.46762794, y: 0.24768077}
   m_UseMotor: 0
   m_Motor:
@@ -1171,8 +1171,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -35.340775
-    m_UpperAngle: 136.03276
+    m_LowerAngle: 52.34735
+    m_UpperAngle: 166.82585
 --- !u!23 &1521307702
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1322,7 +1322,7 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -194.71634
+    m_LowerAngle: -29.28941
     m_UpperAngle: 29.209837
 --- !u!23 &1600421728
 MeshRenderer:
@@ -1584,7 +1584,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1626,7 +1626,7 @@ HingeJoint2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1732451187}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 1521307699}
@@ -1641,8 +1641,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -93.30297
-    m_UpperAngle: -0.6575947
+    m_LowerAngle: -71.26963
+    m_UpperAngle: 3.8132591
 --- !u!23 &1732451191
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1707,7 +1707,7 @@ SliderJoint2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1732451187}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 1521307699}
@@ -1715,7 +1715,7 @@ SliderJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.00000036925059, y: 0.26679015}
+  m_ConnectedAnchor: {x: -0.04, y: 0.5}
   m_AutoConfigureAngle: 0
   m_Angle: 90
   m_UseMotor: 0
@@ -1724,8 +1724,8 @@ SliderJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_TranslationLimits:
-    m_LowerTranslation: -0.39
-    m_UpperTranslation: -0.14
+    m_LowerTranslation: -0.14
+    m_UpperTranslation: 0.03
 --- !u!1 &1796162530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,7 +1919,7 @@ MeshRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1868228787}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2016,7 +2016,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2100,7 +2100,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 4
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2116,7 +2116,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2064862832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
