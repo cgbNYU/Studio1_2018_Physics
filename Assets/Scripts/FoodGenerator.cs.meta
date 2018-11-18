@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 708d6ae495c33488fb8074fbef89b21b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Rock: {fileID: 1248273153039238, guid: ec2544d91f1af4e1aba027529ecb0365, type: 2}
+  - Radish: {fileID: 1577349150651754, guid: 3fcfc6d2433224ae08734c0f471723aa, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
