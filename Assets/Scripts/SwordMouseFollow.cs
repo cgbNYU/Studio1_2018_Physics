@@ -7,18 +7,29 @@ public class SwordMouseFollow : MonoBehaviour {
 	
 	//Mouse Variable holds the mouse position relative to the camera
 	//This means that the mouse is always assumed to be on screen even in windowed mode
-	private Vector3 mousePos;
+	private Vector2 previousMousePos;
+	private Vector2 currentMousePos;
+
+	public MouseInput mouseI;
+
+	public int whichMouseNum; //variable used to determine which mouse should control this object
+
+	public float vectorDamp; //reduce the scale of the vector
 	
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		//Get mouse position
-		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		//We have to make sure there is no depth happening because Input.mousePosition returns a Vector3
-		mousePos.z = 0;
+		//Get current mouse position
+		currentMousePos = mouseI.move[whichMouseNum];
+		
+		//Get difference between previous pos and current pos
+		Vector3 posDiff = currentMousePos - previousMousePos;		
 		
 		//Make this object move with the mouse
-		transform.position = mousePos;
+		transform.position += posDiff * Time.deltaTime;
+		
+		//Set previousMousePos to currentMousePos for the next frame
+		previousMousePos = currentMousePos;
 	}
 
 }

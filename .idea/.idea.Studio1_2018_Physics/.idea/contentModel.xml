@@ -11,6 +11,7 @@
           <e p="FoodGenerator.cs" t="Include" />
           <e p="FoodSpawner.cs" t="Include" />
           <e p="ImpaleScript.cs" t="Include" />
+          <e p="MouseInput.cs" t="Include" />
           <e p="SwordMouseFollow.cs" t="Include" />
         </e>
       </e>
