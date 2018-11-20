@@ -1,59 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 
 public class SwordMouseFollow : MonoBehaviour {
 	
-	//This code is going to check to see where the mouse is relative to the sword tip, then push the sword tip in that direction
-	
-	//Movement Variables
-	//We are going to use this to adjust how fast the blade tip moves towards the mouse in the editor
-	public float moveForce;
-	
 	//Mouse Variable holds the mouse position relative to the camera
 	//This means that the mouse is always assumed to be on screen even in windowed mode
-	private Vector3 mousePos;
-	private Vector3 mouseDif;
+	private Vector2 previousMousePos;
+	private Vector2 currentMousePos;
 	
-	//Position variable
-	//This is going to hold this game object's position
-	//Just makes it easier to type
-	private Vector3 tipPos;
-	
-	//Holds tip rigidbody
-	public Rigidbody2D rb;
-	
-	//Bools
-	private bool debug = false;
+	private Vector3 updatedPosition;
 
-	// Use this for initialization
-	void Start ()
+	public MouseInput mouseI;
+
+	public int whichMouseNum; //variable used to determine which mouse should control this object
+
+	public float vectorDamp; //reduce the scale of the vector
+
+	private Rigidbody2D rb;
+
+	void Start()
 	{
-		//initilaizing this in start because it doesn't like to do it up there
 		rb = GetComponent<Rigidbody2D>();
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		//We have to make sure there is no depth happening because Input.mousePosition returns a Vector3
-		mousePos.z = 0;
+		//Get current mouse position
+		currentMousePos = mouseI.move[whichMouseNum];
 		
-		//Temporary variable that holds the vector between the sword tip and the mouse
+		//Get difference between previous pos and current pos
+		Vector3 posDiff = currentMousePos - previousMousePos;		
+		
+		//Make this object move with the mouse
+		//transform.position += posDiff * Time.deltaTime;
 
-		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		transform.position = mousePos;
+		posDiff = posDiff * vectorDamp;
+
+		updatedPosition += posDiff;
 		
-		//Applys force to the sword tip in the direction of the mouse		
+		Debug.Log("posDiff = " + posDiff);
 		
+		rb.MovePosition(updatedPosition);
+		
+		//Set previousMousePos to currentMousePos for the next frame
+		previousMousePos = currentMousePos;
 	}
 
-	public void DebugMouseFollow()
-	{
-		if (debug)
-		{
-			Debug.Log("tipPos = " + tipPos);
-			Debug.Log("mouseDif = " + mouseDif);
-		}
-	}
 }
