@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 50218195970365304}
   - component: {fileID: 58123783080170650}
   - component: {fileID: 212360596383362072}
+  - component: {fileID: 114110219738892384}
   m_Layer: 0
   m_Name: Radish
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1577349150651754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.55977434, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.14, y: -0.96089274, z: 0}
+  m_LocalScale: {x: 0.55951, y: 0.55951, z: 0.55951}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +61,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &58123783080170650
 CircleCollider2D:
@@ -77,6 +78,22 @@ CircleCollider2D:
   m_Offset: {x: -0.002889797, y: 0}
   serializedVersion: 2
   m_Radius: 0.22311841
+--- !u!114 &114110219738892384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577349150651754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46331dd56ab31940b6ae3943e00737a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blade: {fileID: 0}
+  bladeRB: {fileID: 0}
+  jointLimitMin: -0.45
+  jointLimitMax: 0.45
+  isOffTip: 0
 --- !u!212 &212360596383362072
 SpriteRenderer:
   m_ObjectHideFlags: 1

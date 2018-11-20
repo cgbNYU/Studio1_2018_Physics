@@ -147,60 +147,6 @@ RectTransform:
   m_AnchoredPosition: {x: -110.2, y: -44.3}
   m_SizeDelta: {x: 545.7, y: 319.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &186841840
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 186841842}
-  - component: {fileID: 186841841}
-  m_Layer: 0
-  m_Name: Launcher
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &186841841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 186841840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 708d6ae495c33488fb8074fbef89b21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rock: {fileID: 1248273153039238, guid: ec2544d91f1af4e1aba027529ecb0365, type: 2}
-  Radish: {fileID: 1577349150651754, guid: 3fcfc6d2433224ae08734c0f471723aa, type: 2}
-  START_DELAY: 1.26
-  MIN_DELAY: 1.49
-  MAX_DELAY: 2.62
-  HEIGHT_MIN: 1.54
-  HEIGHT_MAX: 1.79
-  MIN_RANGE: 6
-  MAX_RANGE: 6
-  MIN_STARTSPEED: 6.1
-  MAX_STARTSPEED: 12.2
-  MAX_SPIN: 0
-  MAX_ANGLE: 30
-  MIN_ANGLE: 60
---- !u!4 &186841842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 186841840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.8908167, y: 0.6577314, z: 0.25758228}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +554,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1138885929}
   m_CullTransparentMesh: 0
+--- !u!1001 &1330727395
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4571968657214856, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.8908167
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571968657214856, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.6577314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571968657214856, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.25758228
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571968657214856, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571968657214856, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571968657214856, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571968657214856, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571968657214856, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d21ea63e5ec6eb4b9ab40511631c8e9, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1334801381
 Prefab:
   m_ObjectHideFlags: 0
@@ -1008,7 +996,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.9673402, y: -0.2025018}
+  m_ConnectedAnchor: {x: 1.9673404, y: -0.20250173}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &1543717265
@@ -1271,7 +1259,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.069735184, y: 0.4739759}
-  m_ConnectedAnchor: {x: -0.35345447, y: 0.41667536}
+  m_ConnectedAnchor: {x: -0.35345447, y: 0.4166753}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
