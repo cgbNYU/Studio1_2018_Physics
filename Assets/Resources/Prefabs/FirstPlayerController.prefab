@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4348178554097788}
   m_Layer: 0
-  m_Name: ChapinPlayerController
+  m_Name: FirstPlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861472634525816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.14, y: 1.7, z: 0}
+  m_LocalPosition: {x: 4.41, y: 2.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4681354598421834}
@@ -586,7 +586,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709600072324364}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1443,6 +1443,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352266a34a0a9a64abcda97c9c98e3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseI: {fileID: 0}
+  whichMouseNum: 1
+  vectorDamp: 0.01
 --- !u!231 &231352858910503092
 SpringJoint2D:
   m_ObjectHideFlags: 1
@@ -1563,7 +1566,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.22313754, y: -0.48352802}
-  m_ConnectedAnchor: {x: 0.52907604, y: 0.5430248}
+  m_ConnectedAnchor: {x: 0.52907604, y: 0.54302496}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1586,7 +1589,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.10113782, y: -0.61163306}
-  m_ConnectedAnchor: {x: -4.141125, y: -2.3484206}
+  m_ConnectedAnchor: {x: -2.8711252, y: -1.4784206}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1632,7 +1635,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.17, y: 0.05}
-  m_ConnectedAnchor: {x: 0.5679239, y: 0.16249865}
+  m_ConnectedAnchor: {x: 0.5679243, y: 0.1624994}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1655,7 +1658,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.10113782, y: -0.61163306}
-  m_ConnectedAnchor: {x: -0.06539171, y: 0.4284526}
+  m_ConnectedAnchor: {x: -0.06539605, y: 0.4284526}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1678,7 +1681,7 @@ SliderJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.23647681, y: -0.4104154}
-  m_ConnectedAnchor: {x: -0.014025051, y: 0.5180421}
+  m_ConnectedAnchor: {x: -0.009317897, y: 0.50904214}
   m_AutoConfigureAngle: 0
   m_Angle: 0
   m_UseMotor: 0
@@ -1728,7 +1731,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.51, y: 0.12}
-  m_ConnectedAnchor: {x: 0.4400015, y: 0.033333566}
+  m_ConnectedAnchor: {x: 0.4399991, y: 0.0333334}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!255 &255830750080396246
