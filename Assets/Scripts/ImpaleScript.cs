@@ -17,12 +17,23 @@ public class ImpaleScript : MonoBehaviour {
 	public float jointLimitMin;
 	public float jointLimitMax;
 	
+	//Break force and new friction
+	public float breakForce;
+	public float impaledFriction;
+	
+	//Impale Angle
+	//Something close to -1
+	public float impaleAngle;
+	
 	//Bools
 	public bool isOffTip;
 	private bool isImpaled = false;
 	
 	//Stick Trigger
 	private GameObject stickToSword;
+	
+	//This object's rigidbody
+	private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start ()
@@ -32,6 +43,7 @@ public class ImpaleScript : MonoBehaviour {
 		
 		//Initialize
 		stickToSword = GameObject.Find("StickToSwordTrigger");
+		rb = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -44,7 +56,7 @@ public class ImpaleScript : MonoBehaviour {
 			Debug.Log("Joint Limit Min = " + foodSlide.limits.min);
 			Debug.Log("Joint Limit Max = " + foodSlide.limits.max);
 			
-			CheckDropObject();
+			ImpaledDrag();
 		}
 	}
 
@@ -53,7 +65,7 @@ public class ImpaleScript : MonoBehaviour {
 	{
 		if (other.CompareTag("SwordTip") && !isImpaled)
 		{
-			Impaled(other);
+			CheckAngle(other);
 		}
 
 		if (other.CompareTag("SwordStick") && isImpaled)
@@ -89,17 +101,28 @@ public class ImpaleScript : MonoBehaviour {
 		Debug.Log("Stick to sword");
 	}
 
-	public void Impaled(Collider2D other)
+	public void CheckAngle(Collider2D other)
 	{
 		//Get blade rigidbody and gameobject
 		blade = other.transform.parent.gameObject;
 		bladeRB = other.GetComponentInParent<Rigidbody2D>();
-			
+
+		Vector2 stabAngle = rb.velocity - bladeRB.velocity;
+
+		if (Vector2.Dot(stabAngle, blade.transform.right) <= impaleAngle)
+		{
+			Impaled();
+		}
+	}
+
+	public void Impaled()
+	{
 		//Create the joint between this object and the blade, and set the parameters the way I want
 		foodSlide = blade.AddComponent<SliderJoint2D>();
-		foodSlide.connectedBody = GetComponent<Rigidbody2D>();
+		foodSlide.connectedBody = rb;
 		foodSlide.autoConfigureAngle = false;
 		foodSlide.useLimits = true;
+		foodSlide.breakForce = breakForce;
 			
 		Debug.Log("Connected RigidBody = " + foodSlide.connectedBody); //connection debug
 		foodSlide.angle = 0;
@@ -113,5 +136,12 @@ public class ImpaleScript : MonoBehaviour {
 		//Set bools
 		isOffTip = false;
 		isImpaled = true;
+	}
+	
+	//Increase drag on impaled object
+	public void ImpaledDrag()
+	{
+		float bvel = Mathf.Abs(Vector2.Dot(rb.velocity.normalized, (Vector2) blade.transform.right));
+		rb.AddForce(-bvel * bvel * impaledFriction * rb.velocity.normalized);
 	}
 }
