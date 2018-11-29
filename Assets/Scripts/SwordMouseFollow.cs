@@ -12,13 +12,12 @@ public class SwordMouseFollow : MonoBehaviour {
 	
 	private Vector3 updatedPosition;
 
-	public MouseInput mouseI;
-
-	public int whichMouseNum; //variable used to determine which mouse should control this object
-
 	public float vectorDamp; //reduce the scale of the vector
+	public float vectorClamp; //maximum scale of the vector
 
 	private Rigidbody2D rb;
+
+	public GameObject swordBlade;
 
 	void Start()
 	{
@@ -29,21 +28,15 @@ public class SwordMouseFollow : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		//Get current mouse position
-		currentMousePos = mouseI.move[whichMouseNum];
+		currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		
 		//Get difference between previous pos and current pos
 		Vector3 posDiff = currentMousePos - previousMousePos;		
 		
 		//Make this object move with the mouse
-		//transform.position += posDiff * Time.deltaTime;
-
 		posDiff = posDiff * vectorDamp;
-
 		updatedPosition += posDiff;
-		
-		Debug.Log("posDiff = " + posDiff);
-		
-		rb.MovePosition(updatedPosition);
+		rb.position = updatedPosition;
 		
 		//Set previousMousePos to currentMousePos for the next frame
 		previousMousePos = currentMousePos;
