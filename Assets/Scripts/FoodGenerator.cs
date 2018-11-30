@@ -24,9 +24,9 @@ public class FoodGenerator : MonoBehaviour {
 	[Range(1.0f, 10.0f)]
 	public float MAX_DELAY;	//maximum time between firing balls
 	[Header("Random variation in ball starting height")]
-	[Range(1.0f, 5.0f)]
+	[Range(0.0f, 1.0f)]
 	public float HEIGHT_MIN; //maximum spatial offset for random ball position
-	[Range(1.0f, 5.0f)]
+	[Range(0.5f, 2.0f)]
 	public float HEIGHT_MAX; //maximum spatial offset for random ball position
 	[Header("Minimum and maximum landing position of balls")]
 	[Range(6f, 13.0f)]

@@ -21,6 +21,9 @@ public class ImpaleScript : MonoBehaviour {
 	public float breakForce;
 	public float impaledFriction;
 	
+	//Slide speed
+	public float slideSpeed;
+	
 	//Impale Angle
 	//Something close to -1
 	public float impaleAngle;
@@ -55,8 +58,6 @@ public class ImpaleScript : MonoBehaviour {
 			Debug.Log("Joint angle = " + foodSlide.angle);
 			Debug.Log("Joint Limit Min = " + foodSlide.limits.min);
 			Debug.Log("Joint Limit Max = " + foodSlide.limits.max);
-			
-			ImpaledDrag();
 		}
 	}
 
