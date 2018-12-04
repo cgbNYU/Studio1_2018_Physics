@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1577349150651754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.49, y: 1.3424977, z: 0}
-  m_LocalScale: {x: 0.55951, y: 0.55951, z: 0.55951}
+  m_LocalPosition: {x: -1.2802804, y: -0.21771315, z: 0}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -89,12 +89,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46331dd56ab31940b6ae3943e00737a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsValue: 10
+  pointManager: {fileID: 0}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
   jointLimitMin: -0.45
   jointLimitMax: 0.45
-  breakForce: 10000
+  breakForce: 200
   impaledFriction: 10
+  slideSpeed: -10
   impaleAngle: -0.8
   isOffTip: 0
 --- !u!212 &212360596383362072
