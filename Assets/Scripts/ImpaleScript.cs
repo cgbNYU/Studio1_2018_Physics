@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ImpaleScript : MonoBehaviour {
 	
 	//When this object hits the sword tip trigger, create a slider joint in the direction of the sword
+	//Also, increase the score by pointsValue
+	
+	//points values for impaling and cooking
+	public int impalePointValue;
+	public int cookPointValue;
+	
+	//point manager
+	public PointManager pointManager;
 	
 	//Joint variable
 	private SliderJoint2D foodSlide;
@@ -47,6 +56,7 @@ public class ImpaleScript : MonoBehaviour {
 		//Initialize
 		stickToSword = GameObject.Find("StickToSwordTrigger");
 		rb = GetComponent<Rigidbody2D>();
+		pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
 	}
 	
 	// Update is called once per frame
@@ -118,6 +128,9 @@ public class ImpaleScript : MonoBehaviour {
 
 	public void Impaled()
 	{
+		//Give the player points
+		pointManager.IncreasePoints(impalePointValue);
+		
 		//Create the joint between this object and the blade, and set the parameters the way I want
 		foodSlide = blade.AddComponent<SliderJoint2D>();
 		foodSlide.connectedBody = rb;
