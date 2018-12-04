@@ -95,7 +95,7 @@ MonoBehaviour:
   pointManager: {fileID: 0}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
-  jointLimitMin: -0.45
+  jointLimitMin: -0.3
   jointLimitMax: 0.45
   breakForce: 200
   impaledFriction: 10

@@ -15,8 +15,9 @@ public class ImpaleScript : MonoBehaviour {
 	//point manager
 	public PointManager pointManager;
 	
-	//Joint variable
+	//Joint variables
 	private SliderJoint2D foodSlide;
+	private FixedJoint2D foodStickJoint;
 	
 	//Variables for sword gameobject and rigidbody
 	public GameObject blade;
@@ -40,6 +41,7 @@ public class ImpaleScript : MonoBehaviour {
 	//Bools
 	public bool isOffTip;
 	private bool isImpaled = false;
+	private bool isStuck = false;
 	
 	//Stick Trigger
 	private GameObject stickToSword;
@@ -68,6 +70,11 @@ public class ImpaleScript : MonoBehaviour {
 			Debug.Log("Joint angle = " + foodSlide.angle);
 			Debug.Log("Joint Limit Min = " + foodSlide.limits.min);
 			Debug.Log("Joint Limit Max = " + foodSlide.limits.max);
+			
+			if (!isStuck && isImpaled && foodSlide.limitState == JointLimitState2D.LowerLimit) //if the object has slid all the way down
+			{
+				StickToSword();
+			}
 		}
 	}
 
@@ -78,31 +85,16 @@ public class ImpaleScript : MonoBehaviour {
 		{
 			CheckAngle(other);
 		}
-
-		if (other.CompareTag("SwordStick") && isImpaled)
-		{
-			
-		}
 	}
 
-	public void CheckDropObject()
+	private void OnCollisionEnter2D(Collision2D other)
 	{
-		//Drop the food if it reaches the lower limit of the joint
-		//First it checks to make sure it has had a chance to slide down the sword a bit so it doesn't fall right away
-		JointLimitState2D foodSlideLimitState = foodSlide.limitState;
-
-		if (foodSlideLimitState > JointLimitState2D.LowerLimit)
+		if (isImpaled && other.gameObject.CompareTag("Food")) //if this object is on the blade and the other object is stuck on the blade
 		{
-			isOffTip = true;
-			Debug.Log("is off tip = " + isOffTip);
-		}
-		
-		if (foodSlideLimitState == JointLimitState2D.LowerLimit && isOffTip)
-		{
-			Debug.Log("Joint Destroyed!");
-			isImpaled = false;
-			isOffTip = false;
-			Destroy(foodSlide);
+			if (other.gameObject.GetComponent<ImpaleScript>().isStuck)
+			{
+				StickToSword();
+			}
 		}
 	}
 
@@ -110,6 +102,11 @@ public class ImpaleScript : MonoBehaviour {
 	public void StickToSword()
 	{
 		Debug.Log("Stick to sword");
+
+		foodStickJoint = blade.AddComponent<FixedJoint2D>();
+		foodStickJoint.connectedBody = rb;
+
+		isStuck = true;
 	}
 
 	public void CheckAngle(Collider2D other)
