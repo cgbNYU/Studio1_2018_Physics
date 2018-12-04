@@ -12,6 +12,8 @@
           <e p="FoodSpawner.cs" t="Include" />
           <e p="ImpaleScript.cs" t="Include" />
           <e p="MouseInput.cs" t="Include" />
+          <e p="PointController.cs" t="Include" />
+          <e p="PointManager.cs" t="Include" />
           <e p="Restart.cs" t="Include" />
           <e p="SwordMouseFollow.cs" t="Include" />
           <e p="SwordTrackMouseVector.cs" t="Include" />
