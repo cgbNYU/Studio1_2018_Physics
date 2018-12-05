@@ -23,13 +23,13 @@ public class PointManager : MonoBehaviour
 		pointsText.text = "Points: ";
 	}
 
-	private void Update()
+	/*private void Update()
 	{
 		if (impaledFoodStack != null)
 		{
 			DetachFood();
 		}
-	}
+	}*/
 
 	//We are going to call this from the ImpaleScript
 	//When this is called, it will increase the variable that holds the points and then update the text to match.
