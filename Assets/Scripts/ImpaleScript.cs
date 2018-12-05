@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,6 +12,9 @@ public class ImpaleScript : MonoBehaviour {
 	//points values for impaling and cooking
 	public int impalePointValue;
 	public int cookPointValue;
+	
+	//Bool that stores whether it is a pepper or not
+	public bool isPepper;
 	
 	//point manager
 	public PointManager pointManager;
@@ -48,13 +52,13 @@ public class ImpaleScript : MonoBehaviour {
 	
 	//This object's rigidbody
 	private Rigidbody2D rb;
+	
+	//Food Letter Value
+	public Char foodLetter;
 
 	// Use this for initialization
 	void Start ()
 	{
-		//Debugging
-		Debug.Log("Food slide is " + foodSlide);
-		
 		//Initialize
 		stickToSword = GameObject.Find("StickToSwordTrigger");
 		rb = GetComponent<Rigidbody2D>();
@@ -62,15 +66,10 @@ public class ImpaleScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () 
+	void FixedUpdate ()
 	{
 		if (foodSlide != null)
-		{
-			//Debugging
-			Debug.Log("Joint angle = " + foodSlide.angle);
-			Debug.Log("Joint Limit Min = " + foodSlide.limits.min);
-			Debug.Log("Joint Limit Max = " + foodSlide.limits.max);
-			
+		{	
 			if (!isStuck && isImpaled && foodSlide.limitState == JointLimitState2D.LowerLimit) //if the object has slid all the way down
 			{
 				StickToSword();
@@ -101,12 +100,11 @@ public class ImpaleScript : MonoBehaviour {
 	//Delete this object's rigidbody 2D and make it a child of the blade
 	public void StickToSword()
 	{
-		Debug.Log("Stick to sword");
-
-		foodStickJoint = blade.AddComponent<FixedJoint2D>();
-		foodStickJoint.connectedBody = rb;
+		foodStickJoint = gameObject.AddComponent<FixedJoint2D>();
+		foodStickJoint.connectedBody = bladeRB;
 
 		isStuck = true;
+		pointManager.AddFoodToStack(gameObject, foodLetter);
 	}
 
 	public void CheckAngle(Collider2D other)
@@ -134,8 +132,6 @@ public class ImpaleScript : MonoBehaviour {
 		foodSlide.autoConfigureAngle = false;
 		foodSlide.useLimits = true;
 		foodSlide.breakForce = breakForce;
-			
-		Debug.Log("Connected RigidBody = " + foodSlide.connectedBody); //connection debug
 		foodSlide.angle = 0;
 
 		JointTranslationLimits2D foodSlideLimits = foodSlide.limits;
@@ -152,7 +148,7 @@ public class ImpaleScript : MonoBehaviour {
 	//Increase drag on impaled object
 	public void ImpaledDrag()
 	{
-		float bvel = Mathf.Abs(Vector2.Dot(rb.velocity.normalized, (Vector2) blade.transform.right));
+		float bvel = Mathf.Abs(Vector2.Dot(rb.velocity.normalized, (Vector2)blade.transform.right));
 		rb.AddForce(-bvel * bvel * impaledFriction * rb.velocity.normalized);
 	}
 }

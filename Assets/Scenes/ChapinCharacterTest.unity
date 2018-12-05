@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 149629717}
   m_Layer: 8
   m_Name: SwordHilt
-  m_TagString: Untagged
+  m_TagString: Hilt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -834,7 +834,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199298052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -1.11, z: 1.4367676}
+  m_LocalPosition: {x: -0.98, y: -1.11, z: 1.4367676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1496540696}
@@ -1103,6 +1103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 316692975}
   - component: {fileID: 316692976}
+  - component: {fileID: 316692977}
   m_Layer: 0
   m_Name: CookTrigger
   m_TagString: Untagged
@@ -1148,6 +1149,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &316692977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 316692974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d000b7fdf0e0f146afada60811bc2ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointManager: {fileID: 0}
+  cookTime: 2.5
 --- !u!1 &372866879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1684,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 372866881}
-  currentPoints: 0
+  pepperMultiplier: 1.5
+  currentCombo: 0
+  comboMulitplierIncrease: 1
+  comboMultiplierStart: 0
 --- !u!4 &548945993
 Transform:
   m_ObjectHideFlags: 0
@@ -2230,7 +2247,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
