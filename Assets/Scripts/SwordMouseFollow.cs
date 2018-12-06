@@ -25,9 +25,13 @@ public class SwordMouseFollow : MonoBehaviour {
 
 	public GameObject swordBlade;
 
+	private Camera camera;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+
+		camera = Camera.main;
 	}
 
 	// Update is called once per frame
@@ -52,7 +56,7 @@ public class SwordMouseFollow : MonoBehaviour {
 
 	private void MouseFollow()
 	{	
-		currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		currentMousePos = camera.ScreenToWorldPoint(Input.mousePosition);
 		
 		var allowedPos = currentMousePos - initialPos;
 

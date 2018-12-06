@@ -9,52 +9,53 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1248273153039238}
+  m_RootGameObject: {fileID: 1831027776654806}
   m_IsPrefabAsset: 1
---- !u!1 &1248273153039238
+--- !u!1 &1831027776654806
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4320652555366688}
-  - component: {fileID: 50142611313645082}
-  - component: {fileID: 58773787344605620}
-  - component: {fileID: 212650690339552712}
-  - component: {fileID: 114337069686996446}
+  - component: {fileID: 4729762924165188}
+  - component: {fileID: 50575317183029588}
+  - component: {fileID: 58133988319195124}
+  - component: {fileID: 212191824238787430}
+  - component: {fileID: 114722418869394494}
+  - component: {fileID: 114190798947918658}
   m_Layer: 0
-  m_Name: Rock
-  m_TagString: Untagged
+  m_Name: Onion
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4320652555366688
+--- !u!4 &4729762924165188
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248273153039238}
+  m_GameObject: {fileID: 1831027776654806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_LocalPosition: {x: -1.2802804, y: -0.21771315, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50142611313645082
+--- !u!50 &50575317183029588
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248273153039238}
+  m_GameObject: {fileID: 1831027776654806}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 6.5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.5
@@ -63,39 +64,64 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &58773787344605620
+--- !u!58 &58133988319195124
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248273153039238}
+  m_GameObject: {fileID: 1831027776654806}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.002889797, y: 0}
   serializedVersion: 2
-  m_Radius: 0.23
---- !u!114 &114337069686996446
+  m_Radius: 0.22311841
+--- !u!114 &114190798947918658
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248273153039238}
+  m_GameObject: {fileID: 1831027776654806}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7941752a9c05ec1439adbc37a64c2f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   offScreenBuffer: -5
---- !u!212 &212650690339552712
+--- !u!114 &114722418869394494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831027776654806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46331dd56ab31940b6ae3943e00737a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impalePointValue: 200
+  cookPointValue: 350
+  isPepper: 0
+  pointManager: {fileID: 0}
+  blade: {fileID: 0}
+  bladeRB: {fileID: 0}
+  jointLimitMin: -0.3
+  jointLimitMax: 0.45
+  breakForce: 200
+  impaledFriction: 10
+  slideSpeed: -10
+  impaleAngle: -0.8
+  isOffTip: 0
+  foodLetter: 111
+--- !u!212 &212191824238787430
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248273153039238}
+  m_GameObject: {fileID: 1831027776654806}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -126,7 +152,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35706a41c4a624382852c2d074d0b0ec, type: 3}
-  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

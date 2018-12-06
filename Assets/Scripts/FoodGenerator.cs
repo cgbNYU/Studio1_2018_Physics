@@ -5,12 +5,23 @@
 using UnityEngine;
 using System.Collections;
 using System.Runtime.Serialization;
+using UnityEngine.Video;
 
 public class FoodGenerator : MonoBehaviour {
 	private float timeUntilNextItem;
 	private bool shouldThrow;
-	public GameObject Rock; //I have a game object that is a rock
-	public GameObject Radish; //this is a game object that is a food
+
+	public int objectNumber;
+	//Obstacles
+	public GameObject rock; //I have a game object that is a rock
+	public GameObject dagger;
+	public GameObject bomb;
+	
+	//Food
+	public GameObject radish; //this is a game object that is a food
+	public GameObject pepper;
+	public GameObject onion;
+	public GameObject meat;
 
 	
 	//these tuning values are set in the inspector
@@ -63,12 +74,44 @@ public class FoodGenerator : MonoBehaviour {
 				//first create a random position offset so the ball doesn't always appear at same height
 				float rand_y = Random.Range(HEIGHT_MIN, HEIGHT_MAX);
 				Vector3 position = new Vector3(transform.position.x, rand_y, transform.position.z);
-				//GameObject newRock = Instantiate(Rock, position , Quaternion.identity) as GameObject;
+
 				GameObject newObject;
-				if (Random.value < 0.5f)
-					newObject= Instantiate(Rock, position, Quaternion.identity);
+
+				int randomSelect = Random.Range(1, objectNumber);
+				
+				if (randomSelect == 1)
+				{
+					newObject= Instantiate(rock, position, Quaternion.identity);
+				}
+				else if (randomSelect == 2)
+				{
+					newObject= Instantiate(dagger, position, Quaternion.identity);
+				}
+				else if (randomSelect == 3)
+				{
+					newObject= Instantiate(bomb, position, Quaternion.identity);
+				}
+				else if (randomSelect == 4)
+				{
+					newObject= Instantiate(radish, position, Quaternion.identity);
+				}
+				else if (randomSelect == 5)
+				{
+					newObject= Instantiate(pepper, position, Quaternion.identity);
+				}
+				else if (randomSelect == 6)
+				{
+					newObject= Instantiate(onion, position, Quaternion.identity);
+				}
+				else if (randomSelect == 7)
+				{
+					newObject= Instantiate(meat, position, Quaternion.identity);
+				}
 				else
-					newObject= Instantiate(Radish, position, Quaternion.identity);
+				{
+					newObject= Instantiate(radish, position, Quaternion.identity);
+				}
+				
 				float angle = Random.Range(MIN_ANGLE, MAX_ANGLE);
 				float speed = Random.Range(MIN_STARTSPEED, MAX_STARTSPEED);
 
@@ -80,7 +123,6 @@ public class FoodGenerator : MonoBehaviour {
 			}
 		}
 	}
-
 
 	public void StopThrowing() {
 		shouldThrow = false;
