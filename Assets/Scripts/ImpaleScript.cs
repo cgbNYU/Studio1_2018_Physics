@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,11 +13,15 @@ public class ImpaleScript : MonoBehaviour {
 	public int impalePointValue;
 	public int cookPointValue;
 	
+	//Bool that stores whether it is a pepper or not
+	public bool isPepper;
+	
 	//point manager
 	public PointManager pointManager;
 	
-	//Joint variable
+	//Joint variables
 	private SliderJoint2D foodSlide;
+	private FixedJoint2D foodStickJoint;
 	
 	//Variables for sword gameobject and rigidbody
 	public GameObject blade;
@@ -40,19 +45,20 @@ public class ImpaleScript : MonoBehaviour {
 	//Bools
 	public bool isOffTip;
 	private bool isImpaled = false;
+	private bool isStuck = false;
 	
 	//Stick Trigger
 	private GameObject stickToSword;
 	
 	//This object's rigidbody
 	private Rigidbody2D rb;
+	
+	//Food Letter Value
+	public Char foodLetter;
 
 	// Use this for initialization
 	void Start ()
 	{
-		//Debugging
-		Debug.Log("Food slide is " + foodSlide);
-		
 		//Initialize
 		stickToSword = GameObject.Find("StickToSwordTrigger");
 		rb = GetComponent<Rigidbody2D>();
@@ -60,14 +66,14 @@ public class ImpaleScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () 
+	void FixedUpdate ()
 	{
 		if (foodSlide != null)
-		{
-			//Debugging
-			Debug.Log("Joint angle = " + foodSlide.angle);
-			Debug.Log("Joint Limit Min = " + foodSlide.limits.min);
-			Debug.Log("Joint Limit Max = " + foodSlide.limits.max);
+		{	
+			if (!isStuck && isImpaled && foodSlide.limitState == JointLimitState2D.LowerLimit) //if the object has slid all the way down
+			{
+				StickToSword();
+			}
 		}
 	}
 
@@ -78,38 +84,27 @@ public class ImpaleScript : MonoBehaviour {
 		{
 			CheckAngle(other);
 		}
-
-		if (other.CompareTag("SwordStick") && isImpaled)
-		{
-			
-		}
 	}
 
-	public void CheckDropObject()
+	private void OnCollisionEnter2D(Collision2D other)
 	{
-		//Drop the food if it reaches the lower limit of the joint
-		//First it checks to make sure it has had a chance to slide down the sword a bit so it doesn't fall right away
-		JointLimitState2D foodSlideLimitState = foodSlide.limitState;
-
-		if (foodSlideLimitState > JointLimitState2D.LowerLimit)
+		if (isImpaled && other.gameObject.CompareTag("Food")) //if this object is on the blade and the other object is stuck on the blade
 		{
-			isOffTip = true;
-			Debug.Log("is off tip = " + isOffTip);
-		}
-		
-		if (foodSlideLimitState == JointLimitState2D.LowerLimit && isOffTip)
-		{
-			Debug.Log("Joint Destroyed!");
-			isImpaled = false;
-			isOffTip = false;
-			Destroy(foodSlide);
+			if (other.gameObject.GetComponent<ImpaleScript>().isStuck)
+			{
+				StickToSword();
+			}
 		}
 	}
 
 	//Delete this object's rigidbody 2D and make it a child of the blade
 	public void StickToSword()
 	{
-		Debug.Log("Stick to sword");
+		foodStickJoint = gameObject.AddComponent<FixedJoint2D>();
+		foodStickJoint.connectedBody = bladeRB;
+
+		isStuck = true;
+		pointManager.AddFoodToStack(gameObject, foodLetter);
 	}
 
 	public void CheckAngle(Collider2D other)
@@ -137,8 +132,6 @@ public class ImpaleScript : MonoBehaviour {
 		foodSlide.autoConfigureAngle = false;
 		foodSlide.useLimits = true;
 		foodSlide.breakForce = breakForce;
-			
-		Debug.Log("Connected RigidBody = " + foodSlide.connectedBody); //connection debug
 		foodSlide.angle = 0;
 
 		JointTranslationLimits2D foodSlideLimits = foodSlide.limits;
@@ -155,7 +148,7 @@ public class ImpaleScript : MonoBehaviour {
 	//Increase drag on impaled object
 	public void ImpaledDrag()
 	{
-		float bvel = Mathf.Abs(Vector2.Dot(rb.velocity.normalized, (Vector2) blade.transform.right));
+		float bvel = Mathf.Abs(Vector2.Dot(rb.velocity.normalized, (Vector2)blade.transform.right));
 		rb.AddForce(-bvel * bvel * impaledFriction * rb.velocity.normalized);
 	}
 }
