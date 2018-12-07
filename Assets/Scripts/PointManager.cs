@@ -17,19 +17,26 @@ public class PointManager : MonoBehaviour
 
 	public Stack<GameObject> impaledFoodStack = new Stack<GameObject>();
 	private String impaledFoodString;
+
+	public Text HighScoreText;
 	
 	private void Start()
 	{
 		pointsText.text = "Points: ";
+		HighScoreText.text = "High Score" + PlayerPrefs.GetFloat("HighScore");	
+
 	}
 
-	/*private void Update()
+	private void Update()
 	{
-		if (impaledFoodStack != null)
-		{
-			DetachFood();
-		}
-	}*/
+		//if (impaledFoodStack != null)
+		//	{
+		//	DetachFood();
+		//}
+		
+		
+		
+	}
 
 	//We are going to call this from the ImpaleScript
 	//When this is called, it will increase the variable that holds the points and then update the text to match.
@@ -38,6 +45,12 @@ public class PointManager : MonoBehaviour
 	{
 		currentPoints = currentPoints + pointsToAdd;
 		pointsText.text = "Points: " + currentPoints.ToString("f0");
+		if (currentPoints > PlayerPrefs.GetFloat("HighScore"))
+		{
+			PlayerPrefs.SetFloat("HighScore", currentPoints);
+			HighScoreText.text = "High Score" + currentPoints;
+		}
+		
 	}
 
 	//Call this from ImpaleScript
