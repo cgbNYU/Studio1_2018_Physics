@@ -11,7 +11,7 @@ public class Restart : MonoBehaviour
 		if( Input.GetKeyDown(KeyCode.R) )
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			PlayerPrefs.SetFloat("HighScore", 0);
+			//PlayerPrefs.SetFloat();
 		}
 	}
 }
