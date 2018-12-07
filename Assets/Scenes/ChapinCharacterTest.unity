@@ -1006,7 +1006,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199298052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.576, y: -1.11, z: 1.4367676}
+  m_LocalPosition: {x: -0.84, y: -1.11, z: 1.4367676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1496540696}
@@ -2351,7 +2351,7 @@ FixedJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 188976045}
-  m_BreakForce: 100
+  m_BreakForce: 300
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
@@ -2488,7 +2488,7 @@ GameObject:
   - component: {fileID: 1140535426}
   - component: {fileID: 1140535427}
   m_Layer: 0
-  m_Name: Face 0
+  m_Name: FaceSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
