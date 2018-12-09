@@ -116,6 +116,10 @@ public class FoodGenerator : MonoBehaviour {
 				float speed = Random.Range(MIN_STARTSPEED, MAX_STARTSPEED);
 
 				newObject.GetComponent<Rigidbody2D>().velocity= new Vector2(-Mathf.Cos(angle*Mathf.Deg2Rad)*speed, Mathf.Sin(angle*Mathf.Deg2Rad)*speed);
+
+				float spin = Random.Range(0, MAX_SPIN);
+				
+				newObject.GetComponent<Rigidbody2D>().AddTorque(spin);
 				
 
 				//set the timer to a random amount

@@ -66,44 +66,50 @@ public class PointManager : MonoBehaviour
 	//When the timer runs down, give out the combo points and reset the necessary variables
 	public void ComboPayout()
 	{
-		float comboTotal = 0;
-		float comboMultiplier = 1;
-		float lastPoints = 0;
-		float points = 0;
-		bool wasPepper = false;
-
-		for (int i = 0; i < impaledFoodStack.Count; i++)
+		if (impaledFoodStack != null)
 		{
-			GameObject poppedFood = impaledFoodStack.Pop();
-			ImpaleScript poppedFoodScript = poppedFood.GetComponent<ImpaleScript>();
+			float comboTotal = 0;
+			float comboMultiplier = 1;
+			float lastPoints = 0;
+			float points = 0;
+			bool wasPepper = false;
 
-			points = poppedFoodScript.impalePointValue;
+			for (int i = 0; i < impaledFoodStack.Count; i++)
+			{
+				GameObject poppedFood = impaledFoodStack.Pop();
+				ImpaleScript poppedFoodScript = poppedFood.GetComponent<ImpaleScript>();
 
-			if (i == 0)
-			{
-				comboTotal += points;
-			}
-			else
-			{
-				if (wasPepper)
+				points = poppedFoodScript.impalePointValue;
+
+				if (i == 0)
 				{
-					points *= pepperMultiplier;
-					wasPepper = false;
+					comboTotal += points;
 				}
-				if (poppedFoodScript.isPepper)
+				else
 				{
-					wasPepper = true;
-					lastPoints *= pepperMultiplier;
+					if (wasPepper)
+					{
+						points *= pepperMultiplier;
+						wasPepper = false;
+					}
+
+					if (poppedFoodScript.isPepper)
+					{
+						wasPepper = true;
+						lastPoints *= pepperMultiplier;
+					}
+
+					comboTotal += lastPoints;
 				}
-				comboTotal += lastPoints;
+
+				lastPoints = points;
+				comboMultiplier += comboMulitplierIncrease;
+				Destroy(poppedFood);
 			}
-			lastPoints = points;
-			comboMultiplier += comboMulitplierIncrease;
-			Destroy(poppedFood);
+
+			comboTotal *= comboMultiplier;
+			IncreasePoints(comboTotal);
 		}
-
-		comboTotal *= comboMultiplier;
-		IncreasePoints(comboTotal);
 
 	}
 
