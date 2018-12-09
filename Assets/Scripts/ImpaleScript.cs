@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = System.Random;
 
 public class ImpaleScript : MonoBehaviour {
 	
@@ -55,6 +56,9 @@ public class ImpaleScript : MonoBehaviour {
 	
 	//Food Letter Value
 	public Char foodLetter;
+	
+	//Audio Manager
+	public AudioManager audioManager;
 
 	// Use this for initialization
 	void Start ()
@@ -63,6 +67,7 @@ public class ImpaleScript : MonoBehaviour {
 		stickToSword = GameObject.Find("StickToSwordTrigger");
 		rb = GetComponent<Rigidbody2D>();
 		pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
+		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 	}
 	
 	// Update is called once per frame
@@ -121,8 +126,13 @@ public class ImpaleScript : MonoBehaviour {
 		}
 	}
 
+	//When it is determined the angle of impact is correct, impale the food on the sword
 	public void Impaled()
 	{
+		
+		//Play sound
+		audioManager.PlaySoundEffect(audioManager.Clips.impaledSounds[UnityEngine.Random.Range(0, audioManager.Clips.impaledSounds.Length)]);
+		
 		//Give the player points
 		pointManager.IncreasePoints(impalePointValue);
 		
