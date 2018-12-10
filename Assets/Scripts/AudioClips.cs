@@ -11,7 +11,6 @@ public class AudioClips : MonoBehaviour
 	public AudioClip onionSound;
 	public AudioClip meatSound;
 	public AudioClip[] deathsounds;
-	public AudioClip mainSong;
 	public AudioClip[] grillSuccess;
 	public AudioClip grillSizzle;
 	public AudioClip gameover;
