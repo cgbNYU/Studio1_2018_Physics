@@ -131,6 +131,14 @@ public class ImpaleScript : MonoBehaviour {
 	{
 		
 		//Play sound
+		if (foodLetter == 'o')
+		{
+			
+		}
+		else if (foodLetter == 'm')
+		{
+			
+		}
 		audioManager.PlaySoundEffect(audioManager.Clips.impaledSounds[UnityEngine.Random.Range(0, audioManager.Clips.impaledSounds.Length)]);
 		
 		//Give the player points

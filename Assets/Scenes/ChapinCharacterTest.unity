@@ -3638,7 +3638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f319d0fa9a1e4b438c5bfcffd697d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Clips: {fileID: 0}
+  Clips: {fileID: 1698729817}
 --- !u!4 &1644038350
 Transform:
   m_ObjectHideFlags: 0
@@ -3754,6 +3754,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: deathsounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: grillSuccess.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: impaledSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4305713985234294, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.3072736
@@ -3786,9 +3801,110 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: impaledSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e5af60940e7f44a6986a1a4c8965601, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: impaledSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a1f70cadf4ec24aa3a6226df5e26afc5, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: impaledSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b1626526dcf1480f84f9ea2bb970947, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: deathsounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1dcb9090a3d5d4305b618eec6448573e, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: grillSuccess.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 357ce4d976f60478dad9c95e0611194f, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: grillSuccess.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 122a6ebeb64354ec5ac24c710bbe8e77, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: grillSuccess.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ef638c1d43fd640da9e92853a57c326f, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: grillSuccess.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 940adb67e009448e7ae84ada210324e2, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: deathsounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f17fe7fc47be64e57955e0e7a70b976c, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: deathsounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2879e0576d4904ce4989a403fe163ece, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: deathsounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b92e696a88db8442f82659e1b92e52fb, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: mainSong
+      value: 
+      objectReference: {fileID: 8300000, guid: d2190aa75cd9e4031809ac5531477e7f, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: grillSizzle
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c40d8b3b43dd4070baf639bdab8483a, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: knifeThrow
+      value: 
+      objectReference: {fileID: 8300000, guid: fd4909bfb77da49bea99765bf3b7cbe1, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: rockThrow
+      value: 
+      objectReference: {fileID: 8300000, guid: 674ee8158e5164d7ea29a5997b0fe785, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: gameover
+      value: 
+      objectReference: {fileID: 8300000, guid: c42e41709a6264a4e962198d482b5229, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: impaledSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: a1f70cadf4ec24aa3a6226df5e26afc5, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: meatSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b1626526dcf1480f84f9ea2bb970947, type: 3}
+    - target: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+        type: 2}
+      propertyPath: onionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1053d70779b2044e4900e29109c1d808, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1698729817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114836642378013028, guid: 5cd91f8771cc4eb4fa9e2c36e0326a1a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1698729816}
+  m_Script: {fileID: 11500000, guid: 1188553f8b20741a5932bced1c9125f6, type: 3}
 --- !u!1 &1727547495
 GameObject:
   m_ObjectHideFlags: 0
