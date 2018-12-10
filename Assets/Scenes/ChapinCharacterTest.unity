@@ -342,12 +342,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 1140535427}
+  defaultSprite: {fileID: 21300000, guid: f44bdfb563170854ea98a22b1bf64692, type: 3}
   happyFaceSprites:
   - {fileID: 21300000, guid: 22a3285f7fc26a2408f9c226b5cecda9, type: 3}
   - {fileID: 21300000, guid: 2f55be62be341f54aa02b0d7624634c9, type: 3}
   sadFaceSprites:
   - {fileID: 21300000, guid: f96d5337e2a70324f80ad51954864e1d, type: 3}
   - {fileID: 21300000, guid: 8c09afe7936af2842a671a8f8435a400, type: 3}
+  resetFaceTime: 1.5
 --- !u!1 &122630742
 GameObject:
   m_ObjectHideFlags: 0
