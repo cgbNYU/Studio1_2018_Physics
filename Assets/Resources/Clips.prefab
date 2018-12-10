@@ -52,4 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bananaThrow: {fileID: 0}
-  impaledSounds: []
+  impaledSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -10,6 +10,7 @@
           <e p="AudioClips.cs" t="Include" />
           <e p="AudioManager.cs" t="Include" />
           <e p="CookScript.cs" t="Include" />
+          <e p="FaceAnimationManager.cs" t="Include" />
           <e p="FoodControl.cs" t="Include" />
           <e p="FoodGenerator.cs" t="Include" />
           <e p="FoodSpawner.cs" t="Include" />

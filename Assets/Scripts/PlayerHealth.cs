@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
 	public HingeJoint2D backCalfJoint;
 	public SliderJoint2D frontCalfJoint;
 
+	private bool isGameOver = false;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -24,8 +26,9 @@ public class PlayerHealth : MonoBehaviour
 		//reduce health
 		hitPoints--;
 
-		if (hitPoints <= 0)
+		if (hitPoints <= 0 && !isGameOver)
 		{
+			isGameOver = true;
 			GameOver();
 		}
 	}
