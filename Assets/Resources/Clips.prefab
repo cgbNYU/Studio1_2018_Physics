@@ -59,7 +59,7 @@ MonoBehaviour:
   onionSound: {fileID: 8300000, guid: 1053d70779b2044e4900e29109c1d808, type: 3}
   meatSound: {fileID: 8300000, guid: 5b1626526dcf1480f84f9ea2bb970947, type: 3}
   deathsounds:
-  - {fileID: 8300000, guid: 1dcb9090a3d5d4305b618eec6448573e, type: 3}
+  - {fileID: 8300000, guid: b92e696a88db8442f82659e1b92e52fb, type: 3}
   - {fileID: 8300000, guid: f17fe7fc47be64e57955e0e7a70b976c, type: 3}
   - {fileID: 8300000, guid: 2879e0576d4904ce4989a403fe163ece, type: 3}
   - {fileID: 8300000, guid: b92e696a88db8442f82659e1b92e52fb, type: 3}

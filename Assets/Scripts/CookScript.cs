@@ -13,12 +13,15 @@ public class CookScript : MonoBehaviour
 
 	private bool isCooking;
 	private bool cooling;
-
+	private GameObject cookingSound;
+	private AudioManager audioManager;
+	
 	// Use this for initialization
 	void Start ()
 	{
 		timer = 0;
 		pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
+		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 	}
 	
 	// Update is called once per frame
@@ -40,6 +43,7 @@ public class CookScript : MonoBehaviour
 		{
 			isCooking = true;
 			cooling = false;
+			cookingSound = audioManager.PlaySoundEffect(audioManager.Clips.grillSizzle, 1.0f, true);
 		}
 	}
 
@@ -48,6 +52,12 @@ public class CookScript : MonoBehaviour
 		if (other.CompareTag("Hilt") && isCooking)
 		{
 			isCooking = false;
+
+			if (cookingSound != null)
+			{
+				Destroy(cookingSound);
+			}
+			
 			cooling = true;
 		}
 	}
