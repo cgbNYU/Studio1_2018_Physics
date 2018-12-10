@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 212650690339552712}
   - component: {fileID: 114337069686996446}
   - component: {fileID: 114188785939549512}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &114337069686996446
 MonoBehaviour:
   m_ObjectHideFlags: 1

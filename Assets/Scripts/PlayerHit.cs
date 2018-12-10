@@ -22,5 +22,6 @@ public class PlayerHit : MonoBehaviour
 		{
 			playerHealth.GetHit();
 		}
+		
 	}
 }

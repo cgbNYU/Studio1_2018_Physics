@@ -59,6 +59,9 @@ public class ImpaleScript : MonoBehaviour {
 	
 	//Audio Manager
 	public AudioManager audioManager;
+	
+	//Face manager
+	public FaceAnimationManager faceManager;
 
 	// Use this for initialization
 	void Start ()
@@ -68,6 +71,7 @@ public class ImpaleScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
 		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+		faceManager = GameObject.Find("FirstPlayerController").GetComponent<FaceAnimationManager>();
 	}
 	
 	// Update is called once per frame
@@ -143,7 +147,9 @@ public class ImpaleScript : MonoBehaviour {
 		{
 			audioManager.PlaySoundEffect(audioManager.Clips.impaledSounds[UnityEngine.Random.Range(0, audioManager.Clips.impaledSounds.Length)]);	
 		}
-	
+		
+		//Change face
+		faceManager.ChangeFace(faceManager.happyFaceSprites[UnityEngine.Random.Range(0, faceManager.happyFaceSprites.Length)], true);
 		
 		//Give the player points
 		pointManager.IncreasePoints(impalePointValue);
