@@ -42,7 +42,7 @@ public class FaceAnimationManager : MonoBehaviour
 		}
 	}
 
-	public void ChangeFace(Sprite sprite, bool isHappy)
+	public void ChangeFace(Sprite sprite, bool isHappy = false)
 	{
 		faceSprite.sprite = sprite;
 
