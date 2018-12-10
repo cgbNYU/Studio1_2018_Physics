@@ -12,11 +12,12 @@ public class PlayerHealth : MonoBehaviour
 
 	public HingeJoint2D backCalfJoint;
 	public SliderJoint2D frontCalfJoint;
+	public AudioManager audioManager;
 
 	// Use this for initialization
 	void Start ()
 	{
-	
+		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 	}
 
 	public void GetHit()
@@ -26,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
 
 		if (hitPoints <= 0)
 		{
+			audioManager.PlaySoundEffect(audioManager.Clips.deathsounds[UnityEngine.Random.Range(0, audioManager.Clips.impaledSounds.Length)]);
 			GameOver();
 		}
 	}

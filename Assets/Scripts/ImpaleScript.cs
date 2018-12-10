@@ -133,13 +133,17 @@ public class ImpaleScript : MonoBehaviour {
 		//Play sound
 		if (foodLetter == 'o')
 		{
-			
+			audioManager.PlaySoundEffect(audioManager.Clips.onionSound);
 		}
 		else if (foodLetter == 'm')
 		{
-			
+			audioManager.PlaySoundEffect(audioManager.Clips.meatSound);
 		}
-		audioManager.PlaySoundEffect(audioManager.Clips.impaledSounds[UnityEngine.Random.Range(0, audioManager.Clips.impaledSounds.Length)]);
+		else 
+		{
+			audioManager.PlaySoundEffect(audioManager.Clips.impaledSounds[UnityEngine.Random.Range(0, audioManager.Clips.impaledSounds.Length)]);	
+		}
+	
 		
 		//Give the player points
 		pointManager.IncreasePoints(impalePointValue);
