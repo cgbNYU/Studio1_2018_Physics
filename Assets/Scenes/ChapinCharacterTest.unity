@@ -330,6 +330,8 @@ MonoBehaviour:
   backMouse: {fileID: 1900003998}
   backCalfJoint: {fileID: 690424662}
   frontCalfJoint: {fileID: 1160491104}
+  audioManager: {fileID: 0}
+  faceManager: {fileID: 0}
 --- !u!114 &43139110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,12 +344,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 1140535427}
+  defaultSprite: {fileID: 21300000, guid: f44bdfb563170854ea98a22b1bf64692, type: 3}
   happyFaceSprites:
   - {fileID: 21300000, guid: 22a3285f7fc26a2408f9c226b5cecda9, type: 3}
   - {fileID: 21300000, guid: 2f55be62be341f54aa02b0d7624634c9, type: 3}
   sadFaceSprites:
   - {fileID: 21300000, guid: f96d5337e2a70324f80ad51954864e1d, type: 3}
   - {fileID: 21300000, guid: 8c09afe7936af2842a671a8f8435a400, type: 3}
+  resetFaceTime: 1.5
 --- !u!1 &122630742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 508, y: 478}
+  m_AnchoredPosition: {x: 191, y: 478}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &277723429
@@ -3910,7 +3914,7 @@ GameObject:
   - component: {fileID: 1796162533}
   - component: {fileID: 1796162532}
   - component: {fileID: 1796162531}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

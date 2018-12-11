@@ -66,7 +66,7 @@ public class PointManager : MonoBehaviour
 	//When the timer runs down, give out the combo points and reset the necessary variables
 	public void ComboPayout()
 	{
-		if (impaledFoodStack != null)
+		if (impaledFoodStack.Count != 0)
 		{
 			float comboTotal = 0;
 			float comboMultiplier = 1;

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114110219738892384}
   - component: {fileID: 114330520051609758}
   - component: {fileID: 58611631682842342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Radish
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -105,6 +105,7 @@ MonoBehaviour:
   isOffTip: 0
   foodLetter: 114
   audioManager: {fileID: 0}
+  faceManager: {fileID: 0}
 --- !u!114 &114330520051609758
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
 	public HingeJoint2D backCalfJoint;
 	public SliderJoint2D frontCalfJoint;
 	public AudioManager audioManager;
+	public FaceAnimationManager faceManager;
 
 	private bool isGameOver = false;
 
@@ -20,16 +21,17 @@ public class PlayerHealth : MonoBehaviour
 	void Start ()
 	{
 		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+		faceManager = GameObject.Find("FirstPlayerController").GetComponent<FaceAnimationManager>();
 	}
 
 	public void GetHit()
 	{
 		//reduce health
 		hitPoints--;
+		faceManager.ChangeFace(faceManager.sadFaceSprites[UnityEngine.Random.Range(0, faceManager.sadFaceSprites.Length)]);
 
 		if (hitPoints <= 0 && !isGameOver)
 		{
-
 			isGameOver = true;
 
 			GameOver();

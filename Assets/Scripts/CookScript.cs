@@ -16,12 +16,16 @@ public class CookScript : MonoBehaviour
 	private GameObject cookingSound;
 	private AudioManager audioManager;
 	
+	//Face manager
+	private FaceAnimationManager faceManager;
+	
 	// Use this for initialization
 	void Start ()
 	{
 		timer = 0;
 		pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
 		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+		faceManager = GameObject.Find("FirstPlayerController").GetComponent<FaceAnimationManager>();
 	}
 	
 	// Update is called once per frame
@@ -39,7 +43,7 @@ public class CookScript : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("Hilt") && pointManager.impaledFoodStack != null)
+		if (other.CompareTag("Hilt") && pointManager.impaledFoodStack.Count != 0)
 		{
 			isCooking = true;
 			cooling = false;
@@ -68,7 +72,9 @@ public class CookScript : MonoBehaviour
 
 		if (timer >= cookTime)
 		{
+			isCooking = false;
 			pointManager.ComboPayout();
+			faceManager.ChangeFace(faceManager.happyFaceSprites[UnityEngine.Random.Range(0, faceManager.happyFaceSprites.Length)], true);
 			timer = 0;
 		}
 	}
