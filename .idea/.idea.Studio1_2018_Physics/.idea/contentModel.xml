@@ -12,6 +12,7 @@
           <e p="CookScript.cs" t="Include" />
           <e p="DontDestroy.cs" t="Include" />
           <e p="FaceAnimationManager.cs" t="Include" />
+          <e p="FallThroughScript.cs" t="Include" />
           <e p="FoodControl.cs" t="Include" />
           <e p="FoodGenerator.cs" t="Include" />
           <e p="FoodSpawner.cs" t="Include" />

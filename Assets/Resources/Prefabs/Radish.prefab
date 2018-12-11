@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 114110219738892384}
   - component: {fileID: 114330520051609758}
   - component: {fileID: 58611631682842342}
-  m_Layer: 9
+  - component: {fileID: 114898244237228790}
+  m_Layer: 0
   m_Name: Radish
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1577349150651754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.202, y: 0.193, z: -1}
+  m_LocalPosition: {x: -0.26, y: -1.04, z: -1}
   m_LocalScale: {x: 0.096133485, y: 0.096133485, z: 0.096133485}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,8 +97,8 @@ MonoBehaviour:
   pointManager: {fileID: 0}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
-  jointLimitMin: -0.3
-  jointLimitMax: 0.45
+  jointLimitMin: -0.12
+  jointLimitMax: 0.67
   breakForce: 200
   impaledFriction: 10
   slideSpeed: -10
@@ -118,6 +119,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offScreenBuffer: -5
+--- !u!114 &114898244237228790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577349150651754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597890553624d454fab9023ce6e23aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212360596383362072
 SpriteRenderer:
   m_ObjectHideFlags: 1

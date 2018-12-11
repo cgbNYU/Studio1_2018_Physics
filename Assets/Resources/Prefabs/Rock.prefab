@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 212650690339552712}
   - component: {fileID: 114337069686996446}
   - component: {fileID: 114188785939549512}
-  m_Layer: 9
+  - component: {fileID: 114982528022946216}
+  m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +56,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 6.5
+  m_Mass: 12
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.5
@@ -104,6 +105,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offScreenBuffer: -5
+--- !u!114 &114982528022946216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248273153039238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597890553624d454fab9023ce6e23aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212650690339552712
 SpriteRenderer:
   m_ObjectHideFlags: 1
