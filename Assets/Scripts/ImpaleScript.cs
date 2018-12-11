@@ -97,7 +97,7 @@ public class ImpaleScript : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (foodSlide != null && other.gameObject.CompareTag("Food")) //if this object is on the blade and the other object is stuck on the blade
+		if (foodSlide != null && other.gameObject.CompareTag("Food") && !isStuck) //if this object is on the blade and the other object is stuck on the blade
 		{
 			if (other.gameObject.GetComponent<ImpaleScript>().isStuck)
 			{
