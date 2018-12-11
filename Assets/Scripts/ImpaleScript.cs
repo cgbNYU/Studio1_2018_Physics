@@ -89,7 +89,7 @@ public class ImpaleScript : MonoBehaviour {
 	//Trigger checks
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("SwordTip") && !isImpaled)
+		if (other.CompareTag("SwordTip") && foodSlide == null)
 		{
 			CheckAngle(other);
 		}
@@ -97,7 +97,7 @@ public class ImpaleScript : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (isImpaled && other.gameObject.CompareTag("Food")) //if this object is on the blade and the other object is stuck on the blade
+		if (foodSlide != null && other.gameObject.CompareTag("Food")) //if this object is on the blade and the other object is stuck on the blade
 		{
 			if (other.gameObject.GetComponent<ImpaleScript>().isStuck)
 			{
@@ -114,6 +114,8 @@ public class ImpaleScript : MonoBehaviour {
 
 		isStuck = true;
 		pointManager.AddFoodToStack(gameObject, foodLetter);
+		
+		Debug.Log("isStuck = " + isStuck);
 	}
 
 	public void CheckAngle(Collider2D other)

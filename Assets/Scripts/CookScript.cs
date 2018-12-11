@@ -47,7 +47,7 @@ public class CookScript : MonoBehaviour
 		{
 			isCooking = true;
 			cooling = false;
-			cookingSound = audioManager.PlaySoundEffect(audioManager.Clips.grillSizzle, 1.0f, true);
+			cookingSound = audioManager.PlaySoundEffect(audioManager.Clips.grillSizzle, 1.0f);
 		}
 	}
 

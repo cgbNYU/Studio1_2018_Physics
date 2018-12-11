@@ -223,11 +223,6 @@ Prefab:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 1796162531}
-    - target: {fileID: 255632104791477390, guid: 6bdcf9186494e8f43954f02ea3bd6875,
-        type: 2}
-      propertyPath: m_BreakForce
-      value: 280
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bdcf9186494e8f43954f02ea3bd6875, type: 2}
   m_IsPrefabAsset: 0
@@ -556,6 +551,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 372866879}
   m_CullTransparentMesh: 0
+--- !u!1 &390915021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1624984912162548, guid: 6bdcf9186494e8f43954f02ea3bd6875,
+    type: 2}
+  m_PrefabInternal: {fileID: 15008946}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ MonoBehaviour:
   currentCombo: 0
   comboMulitplierIncrease: 1
   comboMultiplierStart: 0
-  swordBlade: {fileID: 0}
+  swordBlade: {fileID: 390915021}
   HighScoreText: {fileID: 277723429}
 --- !u!4 &548945993
 Transform:
@@ -707,14 +707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708d6ae495c33488fb8074fbef89b21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectNumber: 7
-  rock: {fileID: 1248273153039238, guid: ec2544d91f1af4e1aba027529ecb0365, type: 2}
-  dagger: {fileID: 1406489969943766, guid: 0187342ad4e0f9842b5af174035f1b9e, type: 2}
-  bomb: {fileID: 1406489969943766, guid: 0187342ad4e0f9842b5af174035f1b9e, type: 2}
-  radish: {fileID: 1577349150651754, guid: 3fcfc6d2433224ae08734c0f471723aa, type: 2}
-  pepper: {fileID: 1898165991122570, guid: 8ff665c172920514785511d9df06d7af, type: 2}
-  onion: {fileID: 1831027776654806, guid: aff913542a1b95447a5d6070e36a946c, type: 2}
-  meat: {fileID: 1476376258353108, guid: 26f8b246805f3a34ca3816226ea16ea9, type: 2}
   objects:
   - {fileID: 1406489969943766, guid: 0187342ad4e0f9842b5af174035f1b9e, type: 2}
   - {fileID: 1476376258353108, guid: 26f8b246805f3a34ca3816226ea16ea9, type: 2}
