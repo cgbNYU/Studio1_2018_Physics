@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 114317253752978676}
   - component: {fileID: 114881244320154128}
   - component: {fileID: 70585880415606658}
-  m_Layer: 9
+  - component: {fileID: 114880588260963630}
+  m_Layer: 0
   m_Name: Meat
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1476376258353108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2802804, y: 0.61, z: -1}
+  m_LocalPosition: {x: -0.40994996, y: -0.8662323, z: -1}
   m_LocalScale: {x: 0.02154794, y: 0.02154794, z: 0.02154794}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,8 +97,8 @@ MonoBehaviour:
   pointManager: {fileID: 0}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
-  jointLimitMin: -0.3
-  jointLimitMax: 0.45
+  jointLimitMin: -0.12
+  jointLimitMax: 0.65
   breakForce: 200
   impaledFriction: 10
   slideSpeed: -10
@@ -106,6 +107,17 @@ MonoBehaviour:
   foodLetter: 109
   audioManager: {fileID: 0}
   faceManager: {fileID: 0}
+--- !u!114 &114880588260963630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476376258353108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597890553624d454fab9023ce6e23aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114881244320154128
 MonoBehaviour:
   m_ObjectHideFlags: 1

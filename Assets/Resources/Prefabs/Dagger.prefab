@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 50576339958085878}
   - component: {fileID: 61732151468980910}
   - component: {fileID: 114791072274740718}
-  m_Layer: 9
+  - component: {fileID: 114839336674456860}
+  m_Layer: 0
   m_Name: Dagger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,3 +145,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
   audioManager: {fileID: 0}
+--- !u!114 &114839336674456860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406489969943766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597890553624d454fab9023ce6e23aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

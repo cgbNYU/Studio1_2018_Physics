@@ -18,6 +18,8 @@ public class PointManager : MonoBehaviour
 	public Stack<GameObject> impaledFoodStack = new Stack<GameObject>();
 	private String impaledFoodString;
 
+	public GameObject swordBlade;
+
 	public Text HighScoreText;
 	
 	private void Start()
@@ -104,7 +106,15 @@ public class PointManager : MonoBehaviour
 
 				lastPoints = points;
 				comboMultiplier += comboMulitplierIncrease;
+				
 				Destroy(poppedFood);
+			}
+
+			SliderJoint2D[] oldSliders = swordBlade.GetComponents<SliderJoint2D>();
+
+			for (int i = 0; i < oldSliders.Length; i++)
+			{
+				Destroy(oldSliders[i]);
 			}
 
 			comboTotal *= comboMultiplier;

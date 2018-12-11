@@ -20,8 +20,8 @@ public class PlayerHit : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
+			
 			playerHealth.GetHit();
 		}
-		
 	}
 }

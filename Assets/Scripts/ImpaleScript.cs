@@ -158,6 +158,7 @@ public class ImpaleScript : MonoBehaviour {
 		foodSlide = blade.AddComponent<SliderJoint2D>();
 		foodSlide.connectedBody = rb;
 		foodSlide.autoConfigureAngle = false;
+		//foodSlide.autoConfigureConnectedAnchor = true;
 		foodSlide.useLimits = true;
 		foodSlide.breakForce = breakForce;
 		foodSlide.angle = 0;
