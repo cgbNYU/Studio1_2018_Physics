@@ -29,17 +29,6 @@ public class PointManager : MonoBehaviour
 
 	}
 
-	private void Update()
-	{
-		//if (impaledFoodStack != null)
-		//	{
-		//	DetachFood();
-		//}
-		
-		
-		
-	}
-
 	//We are going to call this from the ImpaleScript
 	//When this is called, it will increase the variable that holds the points and then update the text to match.
 	//Chops off any decimals
@@ -79,35 +68,38 @@ public class PointManager : MonoBehaviour
 			for (int i = 0; i < impaledFoodStack.Count; i++)
 			{
 				GameObject poppedFood = impaledFoodStack.Pop();
-				ImpaleScript poppedFoodScript = poppedFood.GetComponent<ImpaleScript>();
-
-				points = poppedFoodScript.impalePointValue;
-
-				if (i == 0)
+				if (poppedFood != null)
 				{
-					comboTotal += points;
-				}
-				else
-				{
-					if (wasPepper)
+					ImpaleScript poppedFoodScript = poppedFood.GetComponent<ImpaleScript>();
+
+					points = poppedFoodScript.impalePointValue;
+
+					if (i == 0)
 					{
-						points *= pepperMultiplier;
-						wasPepper = false;
+						comboTotal += points;
+					}
+					else
+					{
+						if (wasPepper)
+						{
+							points *= pepperMultiplier;
+							wasPepper = false;
+						}
+
+						if (poppedFoodScript.isPepper)
+						{
+							wasPepper = true;
+							lastPoints *= pepperMultiplier;
+						}
+
+						comboTotal += lastPoints;
 					}
 
-					if (poppedFoodScript.isPepper)
-					{
-						wasPepper = true;
-						lastPoints *= pepperMultiplier;
-					}
+					lastPoints = points;
+					comboMultiplier += comboMulitplierIncrease;
 
-					comboTotal += lastPoints;
+					Destroy(poppedFood);
 				}
-
-				lastPoints = points;
-				comboMultiplier += comboMulitplierIncrease;
-				
-				Destroy(poppedFood);
 			}
 
 			SliderJoint2D[] oldSliders = swordBlade.GetComponents<SliderJoint2D>();

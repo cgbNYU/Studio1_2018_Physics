@@ -73,18 +73,6 @@ public class ImpaleScript : MonoBehaviour {
 		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 		faceManager = GameObject.Find("FirstPlayerController").GetComponent<FaceAnimationManager>();
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
-	{
-		if (foodSlide != null)
-		{	
-			if (!isStuck && isImpaled && foodSlide.limitState == JointLimitState2D.LowerLimit) //if the object has slid all the way down
-			{
-				StickToSword();
-			}
-		}
-	}
 
 	//Trigger checks
 	private void OnTriggerEnter2D(Collider2D other)
@@ -92,6 +80,11 @@ public class ImpaleScript : MonoBehaviour {
 		if (other.CompareTag("SwordTip") && foodSlide == null)
 		{
 			CheckAngle(other);
+		}
+
+		if (other.CompareTag("Hilt") && foodSlide != null)
+		{
+			StickToSword();
 		}
 	}
 
