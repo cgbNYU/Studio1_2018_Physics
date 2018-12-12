@@ -21,12 +21,27 @@ GameObject:
   - component: {fileID: 4320652555366688}
   - component: {fileID: 50142611313645082}
   - component: {fileID: 58773787344605620}
-  - component: {fileID: 212650690339552712}
   - component: {fileID: 114337069686996446}
   - component: {fileID: 114188785939549512}
   - component: {fileID: 114982528022946216}
   m_Layer: 0
   m_Name: Rock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1683143219631976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4376015930798410}
+  - component: {fileID: 212987843472659252}
+  m_Layer: 0
+  m_Name: RockSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,10 +54,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248273153039238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
-  m_Children: []
+  m_LocalPosition: {x: 1.305029, y: 0.15884149, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4376015930798410}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4376015930798410
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683143219631976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.055, y: -0.327, z: 0}
+  m_LocalScale: {x: 0.09400906, y: 0.09400906, z: 0.09400906}
+  m_Children: []
+  m_Father: {fileID: 4320652555366688}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50142611313645082
@@ -77,9 +106,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.002951026, y: -0.0029497147}
   serializedVersion: 2
-  m_Radius: 0.23
+  m_Radius: 0.20640004
 --- !u!114 &114188785939549512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,12 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597890553624d454fab9023ce6e23aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212650690339552712
+--- !u!212 &212987843472659252
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248273153039238}
+  m_GameObject: {fileID: 1683143219631976}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -151,12 +180,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 35706a41c4a624382852c2d074d0b0ec, type: 3}
-  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 843a2578d6ad9f74bb857a8efa27e38c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 10.8, y: 19.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
