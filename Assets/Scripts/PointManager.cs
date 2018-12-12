@@ -33,6 +33,7 @@ public class PointManager : MonoBehaviour
 	{
 		pointsText.text = "Points: ";
 		HighScoreText.text = "High Score" + PlayerPrefs.GetFloat("HighScore");	
+		swordBlade = GameObject.Find("SwordBlade");
 
 	}
 
@@ -59,6 +60,7 @@ public class PointManager : MonoBehaviour
 		//Stick things to the stack
 		impaledFoodStack.Push(obj);
 		impaledFoodString += letter;
+		Debug.Log("foodStack.count = " + impaledFoodStack.Count);
 
 		//Points stuff
 		ImpaleScript foodStats = obj.GetComponent<ImpaleScript>(); //get the script off the impaled object
@@ -92,6 +94,7 @@ public class PointManager : MonoBehaviour
 		//Points calculations
 		comboPoints += lastPoints; //grab the last food's points value, which will not have been updated
 		IncreasePoints(comboPoints); //increase the points and display to the screen
+		Debug.Log("Combo Payout = " + comboPoints);
 		//Reset all of the combo variables
 		comboPoints = 0;
 		lastPoints = 0;
@@ -167,23 +170,31 @@ public class PointManager : MonoBehaviour
 	public void DestroyCookedFood()
 	{
 		//for loop
-		for (int i = 0; i < impaledFoodStack.Count + 1; i++)
+		/*for (int i = 0; i < impaledFoodStack.Count + 1; i++)
 		{
 			GameObject cookedFood = impaledFoodStack.Pop();
+			Debug.Log("cookedFood = " + cookedFood.name);
 			Destroy(cookedFood);
-		}
+		}*/
+		Debug.Log("DestroyCookedFood");
 		impaledFoodStack.Clear(); //clear out the stack so it doesn't keep it cooking
+		FixedJoint2D[] oldFixed = swordBlade.GetComponents<FixedJoint2D>();
+		foreach (FixedJoint2D oldFix in oldFixed)
+		{
+			Destroy(oldFix);
+		}
 	}
 	
 	//When the cooked food is destroyed, grab all the slider joints on the blade and destroy them
 	public void DestroySliderJoints()
 	{
+		Debug.Log("DestroySliderJoints");
 		//Grab an array of all the sliders on the blade
 		SliderJoint2D[] oldSliders = swordBlade.GetComponents<SliderJoint2D>();
 		//iterate through and delete the sliders
-		for (int i = 0; i < oldSliders.Length; i++)
+		foreach (SliderJoint2D oldSlider in oldSliders)
 		{
-			Destroy(oldSliders[i]);
+			Destroy(oldSlider);
 		}
 	}
 

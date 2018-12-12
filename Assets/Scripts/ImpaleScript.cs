@@ -82,9 +82,10 @@ public class ImpaleScript : MonoBehaviour {
 			CheckAngle(other);
 		}
 
-		if (other.CompareTag("Hilt") && foodSlide != null)
+		if (other.CompareTag("Hilt") && foodSlide != null && !isStuck)
 		{
 			StickToSword();
+			//Debug.Log("Trigger Stick " + gameObject.name);
 		}
 	}
 
@@ -95,6 +96,7 @@ public class ImpaleScript : MonoBehaviour {
 			if (other.gameObject.GetComponent<ImpaleScript>().isStuck)
 			{
 				StickToSword();
+				//Debug.Log("Collision Stick " + gameObject.name);
 			}
 		}
 	}
@@ -102,13 +104,13 @@ public class ImpaleScript : MonoBehaviour {
 	//Delete this object's rigidbody 2D and make it a child of the blade
 	public void StickToSword()
 	{
-		foodStickJoint = gameObject.AddComponent<FixedJoint2D>();
-		foodStickJoint.connectedBody = bladeRB;
+		foodStickJoint = blade.AddComponent<FixedJoint2D>();
+		foodStickJoint.connectedBody = rb;
 
 		isStuck = true;
 		pointManager.AddFoodToStack(gameObject, foodLetter);
 		
-		Debug.Log("isStuck = " + isStuck);
+		//Debug.Log("isStuck = " + isStuck);
 	}
 
 	public void CheckAngle(Collider2D other)

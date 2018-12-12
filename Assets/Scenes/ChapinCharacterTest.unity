@@ -2064,7 +2064,7 @@ MonoBehaviour:
   currentCombo: 0
   comboMulitplierIncrease: 1
   comboMultiplierStart: 0
-  swordBlade: {fileID: 390915021}
+  swordBlade: {fileID: 0}
   HighScoreText: {fileID: 277723429}
 --- !u!4 &548945993
 Transform:

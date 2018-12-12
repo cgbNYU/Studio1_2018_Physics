@@ -40,7 +40,7 @@ public class CookScript : MonoBehaviour
 			CookTimeDown();
 		}
 		
-		Debug.Log("Cook time = " + timer);
+		//Debug.Log("Cook time = " + timer);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
