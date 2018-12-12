@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114330520051609758}
   - component: {fileID: 58611631682842342}
   - component: {fileID: 114898244237228790}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Radish
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -95,9 +95,12 @@ MonoBehaviour:
   cookPointValue: 200
   isPepper: 0
   pointManager: {fileID: 0}
+  cookScript: {fileID: 0}
+  cookedColor: {r: 0.6320754, g: 0.36823273, b: 0.14609292, a: 1}
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
-  jointLimitMin: -0.12
+  jointLimitMin: -1
   jointLimitMax: 0.67
   breakForce: 200
   impaledFriction: 10

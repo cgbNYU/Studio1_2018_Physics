@@ -39,12 +39,15 @@ public class CookScript : MonoBehaviour
 		{
 			CookTimeDown();
 		}
+		
+		//Debug.Log("Cook time = " + timer);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag("Hilt") && pointManager.impaledFoodStack.Count != 0)
 		{
+			BeginCookTween();
 			isCooking = true;
 			cooling = false;
 			cookingSound = audioManager.PlaySoundEffect(audioManager.Clips.grillSizzle, 1.0f);
@@ -55,6 +58,7 @@ public class CookScript : MonoBehaviour
 	{
 		if (other.CompareTag("Hilt") && isCooking)
 		{
+			BeginCoolTween();
 			isCooking = false;
 
 			if (cookingSound != null)
@@ -86,6 +90,24 @@ public class CookScript : MonoBehaviour
 		{
 			timer = 0;
 			cooling = false;
+		}
+	}
+
+	//When the cooking starts, iterate through the impaledArray in pointmanager to activate the cooktween script in the food
+	public void BeginCookTween()
+	{
+		for (int i = 0; i < pointManager.impaledFoodArray.Length; i++)
+		{
+			pointManager.impaledFoodArray[i].GetComponent<ImpaleScript>().CookTween();
+		}
+	}
+	
+	//When cooling starts, do what they did with the cook tween
+	public void BeginCoolTween()
+	{
+		for (int i = 0; i < pointManager.impaledFoodArray.Length; i++)
+		{
+			pointManager.impaledFoodArray[i].GetComponent<ImpaleScript>().CoolTween();
 		}
 	}
 }

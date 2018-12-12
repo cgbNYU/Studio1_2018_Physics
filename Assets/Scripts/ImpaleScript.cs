@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = System.Random;
@@ -19,6 +20,11 @@ public class ImpaleScript : MonoBehaviour {
 	
 	//point manager
 	public PointManager pointManager;
+	
+	//CookScript
+	public CookScript cookScript;
+	public Color cookedColor;
+	public Color originalColor;
 	
 	//Joint variables
 	private SliderJoint2D foodSlide;
@@ -72,18 +78,7 @@ public class ImpaleScript : MonoBehaviour {
 		pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
 		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 		faceManager = GameObject.Find("FirstPlayerController").GetComponent<FaceAnimationManager>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
-	{
-		if (foodSlide != null)
-		{	
-			if (!isStuck && isImpaled && foodSlide.limitState == JointLimitState2D.LowerLimit) //if the object has slid all the way down
-			{
-				StickToSword();
-			}
-		}
+		cookScript = GameObject.Find("CookTrigger").GetComponent<CookScript>();
 	}
 
 	//Trigger checks
@@ -92,6 +87,12 @@ public class ImpaleScript : MonoBehaviour {
 		if (other.CompareTag("SwordTip") && foodSlide == null)
 		{
 			CheckAngle(other);
+		}
+
+		if (other.CompareTag("Hilt") && foodSlide != null && !isStuck)
+		{
+			StickToSword();
+			//Debug.Log("Trigger Stick " + gameObject.name);
 		}
 	}
 
@@ -102,6 +103,7 @@ public class ImpaleScript : MonoBehaviour {
 			if (other.gameObject.GetComponent<ImpaleScript>().isStuck)
 			{
 				StickToSword();
+				//Debug.Log("Collision Stick " + gameObject.name);
 			}
 		}
 	}
@@ -109,13 +111,15 @@ public class ImpaleScript : MonoBehaviour {
 	//Delete this object's rigidbody 2D and make it a child of the blade
 	public void StickToSword()
 	{
-		foodStickJoint = gameObject.AddComponent<FixedJoint2D>();
-		foodStickJoint.connectedBody = bladeRB;
+		foodStickJoint = blade.AddComponent<FixedJoint2D>();
+		foodStickJoint.connectedBody = rb;
+
+		//gameObject.layer = 11;
 
 		isStuck = true;
 		pointManager.AddFoodToStack(gameObject, foodLetter);
 		
-		Debug.Log("isStuck = " + isStuck);
+		//Debug.Log("isStuck = " + isStuck);
 	}
 
 	public void CheckAngle(Collider2D other)
@@ -134,8 +138,7 @@ public class ImpaleScript : MonoBehaviour {
 
 	//When it is determined the angle of impact is correct, impale the food on the sword
 	public void Impaled()
-	{
-		
+	{	
 		//Play sound
 		if (foodLetter == 'o')
 		{
@@ -181,5 +184,19 @@ public class ImpaleScript : MonoBehaviour {
 	{
 		float bvel = Mathf.Abs(Vector2.Dot(rb.velocity.normalized, (Vector2)blade.transform.right));
 		rb.AddForce(-bvel * bvel * impaledFriction * rb.velocity.normalized);
+	}
+	
+	//Tween sprite color as the food cooks
+	public void CookTween()
+	{
+		SpriteRenderer foodColor = GetComponentInChildren<SpriteRenderer>(); //grab the color from the sprite renderer
+		foodColor.DOColor(cookedColor, cookScript.cookTime);
+	}
+	
+	//Tween sprite color as the food cools
+	public void CoolTween()
+	{
+		SpriteRenderer foodColor = GetComponentInChildren<SpriteRenderer>(); //grab the sprite renderer
+		foodColor.DOColor(originalColor, cookScript.cookTime * 2);
 	}
 }
