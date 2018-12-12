@@ -11,6 +11,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1898165991122570}
   m_IsPrefabAsset: 1
+--- !u!1 &1342113301477998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4057156684344900}
+  - component: {fileID: 212253711658061568}
+  m_Layer: 12
+  m_Name: PepperSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1898165991122570
 GameObject:
   m_ObjectHideFlags: 0
@@ -22,15 +38,28 @@ GameObject:
   - component: {fileID: 50155684081127172}
   - component: {fileID: 114197743146213358}
   - component: {fileID: 114073498072907386}
-  - component: {fileID: 61987890147676322}
-  - component: {fileID: 212755471125933268}
-  m_Layer: 0
+  - component: {fileID: 114203315934193536}
+  - component: {fileID: 60027835898044574}
+  m_Layer: 12
   m_Name: Pepper
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4057156684344900
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1342113301477998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.055, y: 0, z: 0}
+  m_LocalScale: {x: 0.063011, y: 0.063011, z: 0.063011}
+  m_Children: []
+  m_Father: {fileID: 4822139143350548}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4822139143350548
 Transform:
   m_ObjectHideFlags: 1
@@ -38,9 +67,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898165991122570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.69888437, y: -1.6765388, z: 0}
-  m_LocalScale: {x: 0.27, y: 1.18, z: 1}
-  m_Children: []
+  m_LocalPosition: {x: -0.87520236, y: 0.60489094, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4057156684344900}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64,8 +94,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &61987890147676322
-BoxCollider2D:
+--- !u!60 &60027835898044574
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -76,19 +106,27 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024868518, y: -0.022742316}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.5, y: 0.5}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45289284, y: 0.49966612}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.11294663, y: 0.26614517}
+      - {x: -0.018832684, y: 0.27837282}
+      - {x: -0.07220054, y: 0.20234174}
+      - {x: -0.033679187, y: 0.13980496}
+      - {x: -0.051229417, y: -0.07373804}
+      - {x: -0.05823934, y: -0.25345623}
+      - {x: -0.07930434, y: -0.41369087}
+      - {x: -0.046246648, y: -0.41369075}
+      - {x: 0.07220042, y: -0.15533426}
 --- !u!114 &114073498072907386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,8 +152,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impalePointValue: 10
   cookPointValue: 50
-  isPepper: 0
+  isPepper: 1
   pointManager: {fileID: 0}
+  cookScript: {fileID: 0}
+  cookedColor: {r: 0.6320754, g: 0.36823273, b: 0.14609292, a: 1}
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
   jointLimitMin: -0.3
@@ -126,12 +167,25 @@ MonoBehaviour:
   impaleAngle: -0.8
   isOffTip: 0
   foodLetter: 112
---- !u!212 &212755471125933268
-SpriteRenderer:
+  audioManager: {fileID: 0}
+  faceManager: {fileID: 0}
+--- !u!114 &114203315934193536
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898165991122570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597890553624d454fab9023ce6e23aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &212253711658061568
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1342113301477998}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -161,12 +215,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 35706a41c4a624382852c2d074d0b0ec, type: 3}
-  m_Color: {r: 0.20241514, g: 0.7169812, b: 0.19277322, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ef862fcae70d9bf44a9094018f36e4e7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 10.8, y: 19.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

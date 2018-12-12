@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = System.Random;
 
 public class ImpaleScript : MonoBehaviour {
 	
@@ -18,6 +20,11 @@ public class ImpaleScript : MonoBehaviour {
 	
 	//point manager
 	public PointManager pointManager;
+	
+	//CookScript
+	public CookScript cookScript;
+	public Color cookedColor;
+	public Color originalColor;
 	
 	//Joint variables
 	private SliderJoint2D foodSlide;
@@ -55,6 +62,12 @@ public class ImpaleScript : MonoBehaviour {
 	
 	//Food Letter Value
 	public Char foodLetter;
+	
+	//Audio Manager
+	public AudioManager audioManager;
+	
+	//Face manager
+	public FaceAnimationManager faceManager;
 
 	// Use this for initialization
 	void Start ()
@@ -63,36 +76,34 @@ public class ImpaleScript : MonoBehaviour {
 		stickToSword = GameObject.Find("StickToSwordTrigger");
 		rb = GetComponent<Rigidbody2D>();
 		pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
-	{
-		if (foodSlide != null)
-		{	
-			if (!isStuck && isImpaled && foodSlide.limitState == JointLimitState2D.LowerLimit) //if the object has slid all the way down
-			{
-				StickToSword();
-			}
-		}
+		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+		faceManager = GameObject.Find("FirstPlayerController").GetComponent<FaceAnimationManager>();
+		cookScript = GameObject.Find("CookTrigger").GetComponent<CookScript>();
 	}
 
 	//Trigger checks
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("SwordTip") && !isImpaled)
+		if (other.CompareTag("SwordTip") && foodSlide == null)
 		{
 			CheckAngle(other);
+		}
+
+		if (other.CompareTag("Hilt") && foodSlide != null && !isStuck)
+		{
+			StickToSword();
+			//Debug.Log("Trigger Stick " + gameObject.name);
 		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (isImpaled && other.gameObject.CompareTag("Food")) //if this object is on the blade and the other object is stuck on the blade
+		if (foodSlide != null && other.gameObject.CompareTag("Food") && !isStuck) //if this object is on the blade and the other object is stuck on the blade
 		{
 			if (other.gameObject.GetComponent<ImpaleScript>().isStuck)
 			{
 				StickToSword();
+				//Debug.Log("Collision Stick " + gameObject.name);
 			}
 		}
 	}
@@ -100,11 +111,15 @@ public class ImpaleScript : MonoBehaviour {
 	//Delete this object's rigidbody 2D and make it a child of the blade
 	public void StickToSword()
 	{
-		foodStickJoint = gameObject.AddComponent<FixedJoint2D>();
-		foodStickJoint.connectedBody = bladeRB;
+		foodStickJoint = blade.AddComponent<FixedJoint2D>();
+		foodStickJoint.connectedBody = rb;
+
+		//gameObject.layer = 11;
 
 		isStuck = true;
 		pointManager.AddFoodToStack(gameObject, foodLetter);
+		
+		//Debug.Log("isStuck = " + isStuck);
 	}
 
 	public void CheckAngle(Collider2D other)
@@ -121,8 +136,26 @@ public class ImpaleScript : MonoBehaviour {
 		}
 	}
 
+	//When it is determined the angle of impact is correct, impale the food on the sword
 	public void Impaled()
-	{
+	{	
+		//Play sound
+		if (foodLetter == 'o')
+		{
+			audioManager.PlaySoundEffect(audioManager.Clips.onionSound);
+		}
+		else if (foodLetter == 'm')
+		{
+			audioManager.PlaySoundEffect(audioManager.Clips.meatSound);
+		}
+		else 
+		{
+			audioManager.PlaySoundEffect(audioManager.Clips.impaledSounds[UnityEngine.Random.Range(0, audioManager.Clips.impaledSounds.Length)]);	
+		}
+		
+		//Change face
+		faceManager.ChangeFace(faceManager.happyFaceSprites[UnityEngine.Random.Range(0, faceManager.happyFaceSprites.Length)], true);
+		
 		//Give the player points
 		pointManager.IncreasePoints(impalePointValue);
 		
@@ -130,6 +163,7 @@ public class ImpaleScript : MonoBehaviour {
 		foodSlide = blade.AddComponent<SliderJoint2D>();
 		foodSlide.connectedBody = rb;
 		foodSlide.autoConfigureAngle = false;
+		//foodSlide.autoConfigureConnectedAnchor = true;
 		foodSlide.useLimits = true;
 		foodSlide.breakForce = breakForce;
 		foodSlide.angle = 0;
@@ -150,5 +184,19 @@ public class ImpaleScript : MonoBehaviour {
 	{
 		float bvel = Mathf.Abs(Vector2.Dot(rb.velocity.normalized, (Vector2)blade.transform.right));
 		rb.AddForce(-bvel * bvel * impaledFriction * rb.velocity.normalized);
+	}
+	
+	//Tween sprite color as the food cooks
+	public void CookTween()
+	{
+		SpriteRenderer foodColor = GetComponentInChildren<SpriteRenderer>(); //grab the color from the sprite renderer
+		foodColor.DOColor(cookedColor, cookScript.cookTime);
+	}
+	
+	//Tween sprite color as the food cools
+	public void CoolTween()
+	{
+		SpriteRenderer foodColor = GetComponentInChildren<SpriteRenderer>(); //grab the sprite renderer
+		foodColor.DOColor(originalColor, cookScript.cookTime * 2);
 	}
 }

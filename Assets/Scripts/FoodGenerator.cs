@@ -10,20 +10,10 @@ using UnityEngine.Video;
 public class FoodGenerator : MonoBehaviour {
 	private float timeUntilNextItem;
 	private bool shouldThrow;
-
-	public int objectNumber;
-	//Obstacles
-	public GameObject rock; //I have a game object that is a rock
-	public GameObject dagger;
-	public GameObject bomb;
 	
-	//Food
-	public GameObject radish; //this is a game object that is a food
-	public GameObject pepper;
-	public GameObject onion;
-	public GameObject meat;
+	//Object Array
+	public GameObject[] objects;
 
-	
 	//these tuning values are set in the inspector
 	[Header("Delay before firing first ball")]
 	[Range(0.0f, 10.0f)]
@@ -77,45 +67,17 @@ public class FoodGenerator : MonoBehaviour {
 
 				GameObject newObject;
 
-				int randomSelect = Random.Range(1, objectNumber);
-				
-				if (randomSelect == 1)
-				{
-					newObject= Instantiate(rock, position, Quaternion.identity);
-				}
-				else if (randomSelect == 2)
-				{
-					newObject= Instantiate(dagger, position, Quaternion.identity);
-				}
-				else if (randomSelect == 3)
-				{
-					newObject= Instantiate(bomb, position, Quaternion.identity);
-				}
-				else if (randomSelect == 4)
-				{
-					newObject= Instantiate(radish, position, Quaternion.identity);
-				}
-				else if (randomSelect == 5)
-				{
-					newObject= Instantiate(pepper, position, Quaternion.identity);
-				}
-				else if (randomSelect == 6)
-				{
-					newObject= Instantiate(onion, position, Quaternion.identity);
-				}
-				else if (randomSelect == 7)
-				{
-					newObject= Instantiate(meat, position, Quaternion.identity);
-				}
-				else
-				{
-					newObject= Instantiate(radish, position, Quaternion.identity);
-				}
+				newObject = Instantiate(objects[UnityEngine.Random.Range(0, objects.Length)], position,
+					Quaternion.identity);
 				
 				float angle = Random.Range(MIN_ANGLE, MAX_ANGLE);
 				float speed = Random.Range(MIN_STARTSPEED, MAX_STARTSPEED);
 
 				newObject.GetComponent<Rigidbody2D>().velocity= new Vector2(-Mathf.Cos(angle*Mathf.Deg2Rad)*speed, Mathf.Sin(angle*Mathf.Deg2Rad)*speed);
+
+				float spin = Random.Range(0, MAX_SPIN);
+				
+				newObject.GetComponent<Rigidbody2D>().AddTorque(spin);
 				
 
 				//set the timer to a random amount

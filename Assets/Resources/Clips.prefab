@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1617683862896158}
+  m_IsPrefabAsset: 1
+--- !u!1 &1617683862896158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4305713985234294}
+  - component: {fileID: 114836642378013028}
+  m_Layer: 0
+  m_Name: Clips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4305713985234294
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617683862896158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3072736, y: 0.22598495, z: -0.3857422}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114836642378013028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617683862896158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1188553f8b20741a5932bced1c9125f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knifeThrow: {fileID: 8300000, guid: fd4909bfb77da49bea99765bf3b7cbe1, type: 3}
+  rockThrow: {fileID: 8300000, guid: 674ee8158e5164d7ea29a5997b0fe785, type: 3}
+  impaledSounds:
+  - {fileID: 8300000, guid: 2e5af60940e7f44a6986a1a4c8965601, type: 3}
+  - {fileID: 8300000, guid: a1f70cadf4ec24aa3a6226df5e26afc5, type: 3}
+  onionSound: {fileID: 8300000, guid: 1053d70779b2044e4900e29109c1d808, type: 3}
+  meatSound: {fileID: 8300000, guid: 5b1626526dcf1480f84f9ea2bb970947, type: 3}
+  deathsounds:
+  - {fileID: 8300000, guid: b92e696a88db8442f82659e1b92e52fb, type: 3}
+  - {fileID: 8300000, guid: f17fe7fc47be64e57955e0e7a70b976c, type: 3}
+  - {fileID: 8300000, guid: 2879e0576d4904ce4989a403fe163ece, type: 3}
+  - {fileID: 8300000, guid: b92e696a88db8442f82659e1b92e52fb, type: 3}
+  mainSong: {fileID: 8300000, guid: d2190aa75cd9e4031809ac5531477e7f, type: 3}
+  grillSuccess:
+  - {fileID: 8300000, guid: 357ce4d976f60478dad9c95e0611194f, type: 3}
+  - {fileID: 8300000, guid: 122a6ebeb64354ec5ac24c710bbe8e77, type: 3}
+  - {fileID: 8300000, guid: ef638c1d43fd640da9e92853a57c326f, type: 3}
+  - {fileID: 8300000, guid: 940adb67e009448e7ae84ada210324e2, type: 3}
+  grillSizzle: {fileID: 8300000, guid: 3c40d8b3b43dd4070baf639bdab8483a, type: 3}
+  gameover: {fileID: 8300000, guid: c42e41709a6264a4e962198d482b5229, type: 3}
