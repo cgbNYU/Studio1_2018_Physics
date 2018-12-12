@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impalePointValue: 10
   cookPointValue: 50
-  isPepper: 0
+  isPepper: 1
   pointManager: {fileID: 0}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
