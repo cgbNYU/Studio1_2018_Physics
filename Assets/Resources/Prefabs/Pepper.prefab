@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4057156684344900}
   - component: {fileID: 212253711658061568}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PepperSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114073498072907386}
   - component: {fileID: 114203315934193536}
   - component: {fileID: 60027835898044574}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pepper
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -154,6 +154,9 @@ MonoBehaviour:
   cookPointValue: 50
   isPepper: 1
   pointManager: {fileID: 0}
+  cookScript: {fileID: 0}
+  cookedColor: {r: 0.6320754, g: 0.36823273, b: 0.14609292, a: 1}
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
   jointLimitMin: -0.3

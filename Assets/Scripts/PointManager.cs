@@ -17,6 +17,7 @@ public class PointManager : MonoBehaviour
 	private float comboMultiplierCurrent;
 
 	public Stack<GameObject> impaledFoodStack = new Stack<GameObject>();
+	public GameObject[] impaledFoodArray;
 	private String impaledFoodString;
 
 	public GameObject swordBlade;
@@ -61,6 +62,8 @@ public class PointManager : MonoBehaviour
 		impaledFoodStack.Push(obj);
 		impaledFoodString += letter;
 		Debug.Log("foodStack.count = " + impaledFoodStack.Count);
+		//Make an array of the stack
+		impaledFoodArray = impaledFoodStack.ToArray();
 
 		//Points stuff
 		ImpaleScript foodStats = obj.GetComponent<ImpaleScript>(); //get the script off the impaled object
@@ -105,65 +108,6 @@ public class PointManager : MonoBehaviour
 		DestroyCookedFood();
 		//Destroy Slider Joints
 		DestroySliderJoints();
-		
-		
-
-		/*if (impaledFoodStack.Count != 0)
-		{
-			float comboTotal = 0;
-			float comboMultiplier = 1;
-			float lastPoints = 0;
-			float points = 0;
-			bool wasPepper = false;
-
-			for (int i = 0; i < impaledFoodStack.Count; i++)
-			{
-				GameObject poppedFood = impaledFoodStack.Pop();
-				if (poppedFood != null)
-				{
-					ImpaleScript poppedFoodScript = poppedFood.GetComponent<ImpaleScript>();
-
-					points = poppedFoodScript.impalePointValue;
-
-					if (i == 0)
-					{
-						comboTotal += points;
-					}
-					else
-					{
-						if (wasPepper)
-						{
-							points *= pepperMultiplier;
-							wasPepper = false;
-						}
-
-						if (poppedFoodScript.isPepper)
-						{
-							wasPepper = true;
-							lastPoints *= pepperMultiplier;
-						}
-
-						comboTotal += lastPoints;
-					}
-
-					lastPoints = points;
-					comboMultiplier += comboMulitplierIncrease;
-
-					Destroy(poppedFood);
-				}
-			}
-
-			SliderJoint2D[] oldSliders = swordBlade.GetComponents<SliderJoint2D>();
-
-			for (int i = 0; i < oldSliders.Length; i++)
-			{
-				Destroy(oldSliders[i]);
-			}
-
-			comboTotal *= comboMultiplier;
-			IncreasePoints(comboTotal);
-		}*/
-
 	}
 
 	//When the food is cooked, for loop through the stack and destroy all the foods
@@ -189,6 +133,11 @@ public class PointManager : MonoBehaviour
 	public void DestroySliderJoints()
 	{
 		Debug.Log("DestroySliderJoints");
+		//iterate through an make all colliders on the food on the blade triggers
+		foreach (GameObject cookedFood in impaledFoodArray)
+		{
+			cookedFood.GetComponent<Collider2D>().isTrigger = true;
+		}
 		//Grab an array of all the sliders on the blade
 		SliderJoint2D[] oldSliders = swordBlade.GetComponents<SliderJoint2D>();
 		//iterate through and delete the sliders
@@ -196,6 +145,7 @@ public class PointManager : MonoBehaviour
 		{
 			Destroy(oldSlider);
 		}
+		
 	}
 
 	//When you click, pop the top object from the stack and delete the fixed joint

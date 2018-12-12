@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4793120633963624}
   - component: {fileID: 212674767023176648}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: OnionSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114722418869394494}
   - component: {fileID: 114190798947918658}
   - component: {fileID: 114172984870869742}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Onion
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -147,6 +147,9 @@ MonoBehaviour:
   cookPointValue: 350
   isPepper: 0
   pointManager: {fileID: 0}
+  cookScript: {fileID: 0}
+  cookedColor: {r: 0.6320754, g: 0.36823273, b: 0.14609292, a: 1}
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
   jointLimitMin: -0.3

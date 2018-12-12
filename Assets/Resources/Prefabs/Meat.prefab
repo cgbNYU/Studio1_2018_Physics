@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114881244320154128}
   - component: {fileID: 70585880415606658}
   - component: {fileID: 114880588260963630}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Meat
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4600150874733302}
   - component: {fileID: 212484286651802028}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MeatSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,9 @@ MonoBehaviour:
   cookPointValue: 600
   isPepper: 0
   pointManager: {fileID: 0}
+  cookScript: {fileID: 0}
+  cookedColor: {r: 0.6320754, g: 0.36823273, b: 0.14609292, a: 1}
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
   blade: {fileID: 0}
   bladeRB: {fileID: 0}
   jointLimitMin: -1
