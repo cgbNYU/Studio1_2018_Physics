@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using Random = System.Random;
 
 public class PointManager : MonoBehaviour
 {
@@ -30,12 +31,15 @@ public class PointManager : MonoBehaviour
 	private float comboPoints;
 	private bool wasPepper;
 	
+	//Audio
+	public AudioManager audioManager;
+	
 	private void Start()
 	{
 		pointsText.text = "Points: ";
 		HighScoreText.text = "High Score" + PlayerPrefs.GetFloat("HighScore");	
 		swordBlade = GameObject.Find("SwordBlade");
-
+		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 	}
 
 	//We are going to call this from the ImpaleScript
@@ -94,6 +98,9 @@ public class PointManager : MonoBehaviour
 	//Every food stores its valu when it is placed on the sword
 	public void ComboPayout()
 	{
+		//Play cook success audio
+		audioManager.PlaySoundEffect(
+			audioManager.Clips.grillSuccess[UnityEngine.Random.Range(0, audioManager.Clips.grillSuccess.Length)]);
 		//Points calculations
 		comboPoints += lastPoints; //grab the last food's points value, which will not have been updated
 		IncreasePoints(comboPoints); //increase the points and display to the screen
