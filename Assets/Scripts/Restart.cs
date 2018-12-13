@@ -13,5 +13,11 @@ public class Restart : MonoBehaviour
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			//PlayerPrefs.SetFloat();
 		}
+		
+		//Quit if the player hits the esc key
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
 	}
 }

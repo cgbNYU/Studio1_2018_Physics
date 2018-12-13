@@ -43,12 +43,14 @@ public class CookScript : MonoBehaviour
 		//Debug.Log("Cook time = " + timer);
 	}
 
-	private void OnTriggerStay2D(Collider2D other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag("Hilt") && pointManager.impaledFoodStack.Count != 0)
 		{
 			BeginCookTween();
 			isCooking = true;
+			cooling = false;
+			cooling = false;
 			cooling = false;
 			cookingSound = audioManager.PlaySoundEffect(audioManager.Clips.grillSizzle, 1.0f);
 		}
