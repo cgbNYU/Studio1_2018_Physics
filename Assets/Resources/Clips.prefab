@@ -63,7 +63,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f17fe7fc47be64e57955e0e7a70b976c, type: 3}
   - {fileID: 8300000, guid: 2879e0576d4904ce4989a403fe163ece, type: 3}
   - {fileID: 8300000, guid: b92e696a88db8442f82659e1b92e52fb, type: 3}
-  mainSong: {fileID: 8300000, guid: d2190aa75cd9e4031809ac5531477e7f, type: 3}
   grillSuccess:
   - {fileID: 8300000, guid: 357ce4d976f60478dad9c95e0611194f, type: 3}
   - {fileID: 8300000, guid: 122a6ebeb64354ec5ac24c710bbe8e77, type: 3}
