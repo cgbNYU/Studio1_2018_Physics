@@ -1592,6 +1592,9 @@ MonoBehaviour:
   pointManager: {fileID: 0}
   timer: 0
   cookTime: 2
+  smokeParticle: {fileID: 1630578278528908, guid: 6ca9f5e2c96294123a68b947408cee14,
+    type: 2}
+  swordBlade: {fileID: 390915021}
 --- !u!1 &372866879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1687,7 @@ GameObject:
   - component: {fileID: 390915022}
   - component: {fileID: 390915029}
   - component: {fileID: 390915030}
+  - component: {fileID: 390915031}
   m_Layer: 8
   m_Name: SwordBlade
   m_TagString: Untagged
@@ -1895,6 +1899,18 @@ PolygonCollider2D:
       - {x: -0.5344715, y: -0.016498804}
       - {x: 0.80784225, y: -0.026912212}
       - {x: 0.46110725, y: -0.011198282}
+--- !u!114 &390915031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390915021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e308be822fc3e94784766c3632637cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
 --- !u!1 &472674449
 GameObject:
   m_ObjectHideFlags: 0

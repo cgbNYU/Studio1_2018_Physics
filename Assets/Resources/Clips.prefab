@@ -70,3 +70,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 940adb67e009448e7ae84ada210324e2, type: 3}
   grillSizzle: {fileID: 8300000, guid: 3c40d8b3b43dd4070baf639bdab8483a, type: 3}
   gameover: {fileID: 8300000, guid: c42e41709a6264a4e962198d482b5229, type: 3}
+  rockHitSword: {fileID: 8300000, guid: 8d0e821405cbff9419766df454f16fc4, type: 3}
+  daggerHitSword: {fileID: 8300000, guid: 5e4521b9ad9de954c8a0b5ec2ffb7fe9, type: 3}

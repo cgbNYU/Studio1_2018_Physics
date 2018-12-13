@@ -30,6 +30,7 @@
           <e p="FoodControl.cs" t="Include" />
           <e p="FoodGenerator.cs" t="Include" />
           <e p="FoodSpawner.cs" t="Include" />
+          <e p="HitSwordSound.cs" t="Include" />
           <e p="ImpaleScript.cs" t="Include" />
           <e p="ObjectCull.cs" t="Include" />
           <e p="PlayerHealth.cs" t="Include" />

@@ -9,6 +9,8 @@ TagManager:
   - SwordStick
   - Hilt
   - Floor
+  - Dagger
+  - Rock
   layers:
   - Default
   - TransparentFX

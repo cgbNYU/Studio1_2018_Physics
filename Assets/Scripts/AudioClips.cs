@@ -14,4 +14,6 @@ public class AudioClips : MonoBehaviour
 	public AudioClip[] grillSuccess;
 	public AudioClip grillSizzle;
 	public AudioClip gameover;
+	public AudioClip rockHitSword;
+	public AudioClip daggerHitSword;
 }

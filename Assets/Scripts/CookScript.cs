@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CookScript : MonoBehaviour
 {
-
+	//Point manager
 	public PointManager pointManager;
 
 	//Timer stuff
@@ -13,8 +13,14 @@ public class CookScript : MonoBehaviour
 
 	private bool isCooking;
 	private bool cooling;
+	
+	//Audio
 	private GameObject cookingSound;
 	private AudioManager audioManager;
+	
+	//Particles
+	public GameObject smokeParticle;
+	public GameObject swordBlade;
 	
 	//Face manager
 	private FaceAnimationManager faceManager;
@@ -79,6 +85,7 @@ public class CookScript : MonoBehaviour
 		if (timer >= cookTime)
 		{
 			isCooking = false;
+			Instantiate(smokeParticle, swordBlade.transform.position, smokeParticle.transform.rotation);
 			pointManager.ComboPayout();
 			faceManager.ChangeFace(faceManager.happyFaceSprites[UnityEngine.Random.Range(0, faceManager.happyFaceSprites.Length)], true);
 			timer = 0;
