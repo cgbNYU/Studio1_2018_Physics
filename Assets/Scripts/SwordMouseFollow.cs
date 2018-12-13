@@ -32,6 +32,8 @@ public class SwordMouseFollow : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 
 		camera = Camera.main;
+
+		Cursor.visible = false; //turn off the cursor
 	}
 
 	// Update is called once per frame

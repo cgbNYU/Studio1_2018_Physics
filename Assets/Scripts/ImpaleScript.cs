@@ -111,6 +111,9 @@ public class ImpaleScript : MonoBehaviour {
 	//Delete this object's rigidbody 2D and make it a child of the blade
 	public void StickToSword()
 	{
+		//Reset the cooking timer
+		cookScript.timer = 0;
+		
 		foodStickJoint = blade.AddComponent<FixedJoint2D>();
 		foodStickJoint.connectedBody = rb;
 

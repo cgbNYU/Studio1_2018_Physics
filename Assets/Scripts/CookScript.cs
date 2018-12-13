@@ -8,7 +8,7 @@ public class CookScript : MonoBehaviour
 	public PointManager pointManager;
 
 	//Timer stuff
-	private float timer;
+	public float timer;
 	public float cookTime;
 
 	private bool isCooking;
