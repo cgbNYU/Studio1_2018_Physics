@@ -43,7 +43,7 @@ public class CookScript : MonoBehaviour
 		//Debug.Log("Cook time = " + timer);
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	private void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.CompareTag("Hilt") && pointManager.impaledFoodStack.Count != 0)
 		{
