@@ -37,9 +37,19 @@ public class PointManager : MonoBehaviour
 	private void Start()
 	{
 		pointsText.text = "Points: ";
-		HighScoreText.text = "High Score" + PlayerPrefs.GetFloat("HighScore");	
+		HighScoreText.text = "High Score: " + PlayerPrefs.GetFloat("HighScore");	
 		swordBlade = GameObject.Find("SwordBlade");
 		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+	}
+
+	private void Update()
+	{
+		//Reset high score
+		if (Input.GetKeyDown(KeyCode.P))
+		{
+			PlayerPrefs.SetFloat("HighScore", 0);
+			HighScoreText.text = "High Score: " + PlayerPrefs.GetFloat("HighScore");
+		}
 	}
 
 	//We are going to call this from the ImpaleScript
@@ -52,9 +62,8 @@ public class PointManager : MonoBehaviour
 		if (currentPoints > PlayerPrefs.GetFloat("HighScore"))
 		{
 			PlayerPrefs.SetFloat("HighScore", currentPoints);
-			HighScoreText.text = "High Score" + currentPoints;
+			HighScoreText.text = "High Score: " + currentPoints;
 		}
-		
 	}
 
 	//Call this from ImpaleScript

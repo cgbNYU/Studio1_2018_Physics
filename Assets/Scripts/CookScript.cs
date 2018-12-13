@@ -14,6 +14,9 @@ public class CookScript : MonoBehaviour
 	private bool isCooking;
 	private bool cooling;
 	
+	//Trigger enter bool
+	public bool hasEnteredTrigger = false;
+	
 	//Audio
 	private GameObject cookingSound;
 	private AudioManager audioManager;
@@ -53,11 +56,9 @@ public class CookScript : MonoBehaviour
 	{
 		if (other.CompareTag("Hilt") && pointManager.impaledFoodStack.Count != 0)
 		{
-			BeginCookTween();
 			isCooking = true;
 			cooling = false;
-			cooling = false;
-			cooling = false;
+			BeginCookTween();
 			cookingSound = audioManager.PlaySoundEffect(audioManager.Clips.grillSizzle, 1.0f);
 		}
 	}
@@ -89,6 +90,7 @@ public class CookScript : MonoBehaviour
 			pointManager.ComboPayout();
 			faceManager.ChangeFace(faceManager.happyFaceSprites[UnityEngine.Random.Range(0, faceManager.happyFaceSprites.Length)], true);
 			timer = 0;
+			hasEnteredTrigger = false;
 		}
 	}
 

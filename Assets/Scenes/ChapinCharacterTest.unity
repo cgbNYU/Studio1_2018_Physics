@@ -458,7 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vectorDamp: 1
   vectorClamp: 2
-  initialPos: {x: -0.21, y: -0.45}
+  initialPos: {x: -0.45, y: -0.4}
   swordBlade: {fileID: 390915021}
 --- !u!23 &122630745
 MeshRenderer:
@@ -1592,6 +1592,7 @@ MonoBehaviour:
   pointManager: {fileID: 0}
   timer: 0
   cookTime: 2
+  hasEnteredTrigger: 0
   smokeParticle: {fileID: 1630578278528908, guid: 6ca9f5e2c96294123a68b947408cee14,
     type: 2}
   swordBlade: {fileID: 390915021}
@@ -3166,7 +3167,7 @@ Prefab:
     - target: {fileID: 114185059055550140, guid: c4abe23ddd54ebe4589a4442f9186ffd,
         type: 2}
       propertyPath: objects.Array.size
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4388554811675840, guid: c4abe23ddd54ebe4589a4442f9186ffd, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3263,6 +3264,18 @@ Prefab:
       propertyPath: objects.Array.data[9]
       value: 
       objectReference: {fileID: 1406489969943766, guid: 0187342ad4e0f9842b5af174035f1b9e,
+        type: 2}
+    - target: {fileID: 114185059055550140, guid: c4abe23ddd54ebe4589a4442f9186ffd,
+        type: 2}
+      propertyPath: objects.Array.data[10]
+      value: 
+      objectReference: {fileID: 1248273153039238, guid: ec2544d91f1af4e1aba027529ecb0365,
+        type: 2}
+    - target: {fileID: 114185059055550140, guid: c4abe23ddd54ebe4589a4442f9186ffd,
+        type: 2}
+      propertyPath: objects.Array.data[11]
+      value: 
+      objectReference: {fileID: 1248273153039238, guid: ec2544d91f1af4e1aba027529ecb0365,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4abe23ddd54ebe4589a4442f9186ffd, type: 2}

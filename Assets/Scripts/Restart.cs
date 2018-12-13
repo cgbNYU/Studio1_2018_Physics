@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
  
 public class Restart : MonoBehaviour
 {
+	
 	void Update ()
 	{
 		//When the player hits the R key on the keyboard, load the current scene through the scenemanager
